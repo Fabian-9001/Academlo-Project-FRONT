@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="bg-white">
+      <main className="bg-white ">
         <h1>Home1</h1>
       </main>
       <Footer />
