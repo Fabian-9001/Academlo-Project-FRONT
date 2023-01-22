@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Login from '../components/Login';
+import SignUp from '../components/SignUp';
 export default function Home() {
   return (
     <>
@@ -12,7 +14,9 @@ export default function Home() {
       </Head>
       <Header />
       <main className="bg-white ">
+        <Login />
         <h1>Home1</h1>
+        <SignUp />
       </main>
       <Footer />
     </>
