@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Login = () => {
   return (
-    <div className="grid max-w-[1280px] w-fill  mx-auto grid-cols-1 md:grid-cols-2">
+    <div className="grid max-w-[1280px] w-fill font-roboto mx-auto grid-cols-1 md:grid-cols-2">
       <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/bgImgLogin.png')] ">
         <div className="flex  mt-[450px] justify-center">
           <div>
