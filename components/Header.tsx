@@ -1,6 +1,6 @@
 import Image from 'next/image';
+import CategoryButton from './CategoryButton';
 import Searcher from './Searcher';
-import StoreAndBrands from './StoreAndBrands';
 
 const Header = () => {
   return (
@@ -17,11 +17,9 @@ const Header = () => {
         <Searcher />
       </div>
       <div className="flex gap-3 text-[#A7A6A7] text-[13px] font-normal mt-4 ">
-        <StoreAndBrands />
-        <button className="bg-white px-8 py-2 rounded-[23px]">
-          Artistas y conciertos
-        </button>
-        <button className="bg-white px-8 py-2 rounded-[23px]">Torneos</button>
+        <CategoryButton text="Marcas y tiendas" />
+        <CategoryButton text="Artistas y conciertos" />
+        <CategoryButton text="Torneos" />
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Searcher = () => {
   return (
-    <div className="w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between ">
+    <form className="w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between ">
       <input
         className="font-roboto text-[#A7A6A7] text-[13px] pl-[25px] leading-[15px] w-[80%] bg-transparent outline-none"
         type="text"
@@ -18,7 +18,7 @@ const Searcher = () => {
           alt="Magnifying glass icon"
         />
       </button>
-    </div>
+    </form>
   );
 };
 

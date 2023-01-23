@@ -1,6 +1,9 @@
 import Head from 'next/head';
+import Link from 'next/link';
+import StoreAndBrands from '../components/CategoryButton';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import SliderCards from '../components/SliderCards';
 export default function Home() {
   return (
     <>
@@ -11,8 +14,63 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="bg-white">
-        <h1>Home1</h1>
+      <main className="bg-white pt-[85px]">
+        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto">
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
+              Populares en Querétaro
+            </h2>
+            <p className="font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-grayDark">
+              Lo que las personas piden más
+            </p>
+          </div>
+          <SliderCards />
+        </div>
+        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto">
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
+              Sugerencias para ti
+            </h2>
+            <p className="font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-grayDark">
+              Publicaciones que podrías colaborar
+            </p>
+          </div>
+          <SliderCards />
+        </div>
+        <div className="min-w-[420px] h-[280px] duration-[0.5s] bg-primary-grayLighter p-[25px] sm:h-[250px] sm:pl-[60px] max-w-[940px] mx-auto">
+          <div className="flex flex-col gap-[10px] ">
+            <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
+              ¡Hagámoslo más personal!
+            </h2>
+            <p className="w-[90%] font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-grayDark">
+              Selecciona tus interes para brindarte sugerencia de acuerdo a tus
+              gustos
+            </p>
+          </div>
+          <div className="flex gap-[10px] mt-[20px] mb-[50px] sm:mb-[25px]">
+            <StoreAndBrands text="Artistas mexicanos" />
+            <StoreAndBrands text="Tiendas de ropa" />
+            <StoreAndBrands text="Rock" />
+            <StoreAndBrands text="Restaurantes" />
+          </div>
+          <Link
+            className="font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-blue pb-[40px]"
+            href="#"
+          >
+            Ver todos los intereses
+          </Link>
+        </div>
+        <div className="flex flex-col gap-[35px] pb-[95px] pl-[20px] pt-[25px] sm:pb-[115px] sm:pt-[35px] max-w-[1000px] mx-auto">
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
+              Recientes
+            </h2>
+            <p className="font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-grayDark">
+              Las personas últimanete están hablando de esto
+            </p>
+          </div>
+          <SliderCards />
+        </div>
       </main>
       <Footer />
     </>

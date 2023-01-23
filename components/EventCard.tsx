@@ -9,9 +9,9 @@ const EventCard = () => {
   const [isEnable, setIsEnable] = useState(false);
 
   return (
-    <div className="min-w-[300px] max-w-[375px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden">
-      <div className="w-full h-[240px] bg-gray-300 relative ">
-        <Image src={''} fill={true} alt="Image of the event" quality={100} />
+    <div className="xs:w-[300px]  h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden mx-[10px]">
+      <div className="w-full h-[240px]  relative ">
+        <Image src={'/images/ExampleImg.png'} fill={true} alt="Image of the event" quality={100} />
       </div>
 
       <div
