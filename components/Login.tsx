@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Login = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
+    <div className="grid max-w-[1280px] w-fill  mx-auto grid-cols-1 md:grid-cols-2">
       <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/bgImgLogin.png')] ">
         <div className="flex  mt-[450px] justify-center">
           <div>
@@ -23,7 +23,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="container grid grid-cols-1 md:px-10 items-center bg-slate-200 text-black mx-auto h-[736px]">
+      <div className="container grid grid-cols-1 md:px-10 items-center  text-black mx-auto h-[736px]">
         <div className="mt-16 flex justify-center">
           <Image
             width={187}
@@ -38,21 +38,30 @@ const Login = () => {
             Login with the data you entered during your registration.
           </p>
         </div>
-        <div className="flex  flex-col w-full px-4 bg-white  ">
-          <p className=" mt-2 text-#1D1C3F  mb-1 font-bold text-lg">Email</p>
-          <input
-            className="w-full pl-[25px] leading-[15px]  border-slate-500 outline-none bg-white border-2 rounded-md h-14"
-            type="text"
-          />
-          <p className="text-#1D1C3F font-bold mb-1 text-lg">Password</p>
-          <input
-            className="w-full pl-[25px] leading-[15px] border-slate-500 outline-none bg-white border-2 rounded-md h-14"
-            type="text"
-          />
+        <form className="flex  flex-col w-full px-4 bg-white  ">
+          <div>
+            <label className=" mt-2 text-#1D1C3F  mb-1 font-bold text-lg">
+              Email
+            </label>
+            <input
+              className="w-full pl-[25px] leading-[15px]  border-slate-500 outline-none bg-white border-2 rounded-md h-14"
+              type="email"
+            />
+          </div>
+          <div className="mt-4 mb-5">
+            <label className="text-#1D1C3F font-bold mb-1 text-lg">
+              Password
+            </label>
+            <input
+              className="w-full pl-[25px] leading-[15px] border-slate-500 outline-none bg-white border-2 rounded-md h-14"
+              type="password"
+            />
+          </div>
+
           <button className="text-white mt-2 h-12 rounded-md bg-blue-800">
             Log in
           </button>
-        </div>
+        </form>
         <p className="w-1/2 text-center text-#4D4D4D -mt-6 mx-auto leading-5 text-[16px] font-400 font-inter text-inter ">
           Did you forget your password?
         </p>
@@ -62,40 +71,3 @@ const Login = () => {
 };
 
 export default Login;
-
-{
-  /* <div className=" container flex flex-col items-center bg-slate-200 text-black mx-auto h-[736px]">
-      <div className="mt-16">
-        <Image
-          width={187}
-          height={168}
-          src="/images/FrameLogo.png"
-          alt="img login"
-        />
-      </div>
-      <div className="bg-white w-full px-4 mt-7 mx-2">
-        <p className="font-bold text-[32px] text-inter">Login</p>
-        <p className="text-#4D4D4D mt-1 leading-5 text-[16px] font-400 font-inter text-inter">
-          Login with the data you entered during your registration.
-        </p>
-      </div>
-      <div className="flex  flex-col w-full px-4 bg-white  ">
-        <p className=" mt-2 text-#1D1C3F  mb-1 font-bold text-lg">Email</p>
-        <input
-          className="w-full pl-[25px] leading-[15px]  border-slate-500 outline-none bg-white border-2 rounded-md h-14"
-          type="text"
-        />
-        <p className="text-#1D1C3F font-bold mb-1 text-lg">Password</p>
-        <input
-          className="w-full pl-[25px] leading-[15px] border-slate-500 outline-none bg-white border-2 rounded-md h-14"
-          type="text"
-        />
-        <button className="text-white mt-2 h-12 rounded-md bg-blue-800">
-          Log in
-        </button>
-      </div>
-      <p className="w-1/2 text-center text-#4D4D4D mt-4 mx-auto leading-5 text-[16px] font-400 font-inter text-inter ">
-        Did you forget your password?
-      </p>
-    </div> */
-}
