@@ -23,10 +23,10 @@ module.exports = {
         'primary-gray': '#A7A6A7',
         'primary-grayLight': '#D9D9D9',
         'primary-grayLighter': '#F8F7FA',
-        'secondary-red': '#EF3F47'
+        'secondary-red': '#EF3F47',
       },
       fontFamily: {
-        'roboto': ['Roboto', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       fontWeight: {
         'title-1': '900',
@@ -35,7 +35,7 @@ module.exports = {
         'subtitle-1': '500',
         'subtitle-2': '400',
         'texto-1': '400',
-        'texto-2': '500'
+        'texto-2': '500',
       },
       fontSize: {
         'title-1': '48px',
@@ -44,11 +44,11 @@ module.exports = {
         'subtitle-1': '16px',
         'subtitle-2': '16px',
         'texto-1': '15px',
-        'texto-2': '14px'
+        'texto-2': '14px',
       },
       fontStyle: {
-        'italic': 'italic',
-        'normal': 'not italic',
+        italic: 'italic',
+        normal: 'not italic',
       },
       lineHeight: {
         'title-1': '56px',
@@ -57,10 +57,10 @@ module.exports = {
         'subtitle-1': '19px',
         'subtitle-2': '19px',
         'texto-1': '18px',
-        'texto-2': '16px'
+        'texto-2': '16px',
       },
       dropShadow: {
-        'shadow': '0px 2px 4px rgba(0, 0, 0, 0.25)'
+        'shadow': 'filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25))'
       }
     }
   },
