@@ -1,7 +1,7 @@
 export default function Artists() {
   return (
     <>
-      <h1>Artists</h1>
+      <h1>ArtistsJL</h1>
     </>
   );
 }
