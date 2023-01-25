@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const NavBar = () => {
   return (
-    <nav className="h-[71px] relative mx-auto p-5 px-6 max-w-[1280px]">
+    <nav className="h-[71px] bg-black relative mx-auto p-5 px-6 max-w-[1280px]">
       <div className=" justify-between text-[11px]  font-roboto font-[500] mx-auto  flex ">
         <div>
           <Image

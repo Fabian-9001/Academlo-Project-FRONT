@@ -1,9 +1,16 @@
 import Head from 'next/head';
+import ArrowNext from '../components/ArrowNext';
+import ButtonNext from '../components/ButtonNext';
+import EventCard from '../components/EventCard';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import Login from '../components/Login';
+import LikeDisable from '../components/LikeDisable';
+import LikeEnable from '../components/LikeEnable';
 import NavBar from '../components/NavBar';
-import SignUp from '../components/SignUp';
+import Person from '../components/Person';
+import Profile from '../components/Profile';
+import Searcher from '../components/Searcher';
+import StoreAndBrands from '../components/StoreAndBrands';
 export default function Home() {
   return (
     <>
@@ -16,9 +23,17 @@ export default function Home() {
       <NavBar />
       <Header />
       <main className="bg-white ">
-        <Login />
+        <Profile />
         <h1>Home1</h1>
-        <SignUp />
+        <ArrowNext />
+        <ButtonNext />
+        <EventCard />
+        <LikeDisable />
+        <LikeEnable />
+        <NavBar />
+        <Person />
+        <Searcher />
+        <StoreAndBrands />
       </main>
       <Footer />
     </>
