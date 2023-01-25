@@ -2,6 +2,7 @@ import Head from 'next/head';
 import ArrowNext from '../components/ArrowNext';
 import ButtonNext from '../components/ButtonNext';
 import EventCard from '../components/EventCard';
+import ExpandProfile from '../components/ExpandProfile';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LikeDisable from '../components/LikeDisable';
@@ -34,6 +35,7 @@ export default function Home() {
         <Person />
         <Searcher />
         <StoreAndBrands />
+        <ExpandProfile />
       </main>
       <Footer />
     </>
