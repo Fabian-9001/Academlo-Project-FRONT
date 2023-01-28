@@ -5,7 +5,7 @@ const LikeEnable = () => {
   return (
     <button>
       <Image
-        src="svg/likeEnable.svg"
+        src="/svg/likeEnable.svg"
         width={50}
         height={50}
         alt="Heart icon with background pink"
