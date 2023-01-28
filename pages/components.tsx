@@ -1,5 +1,5 @@
 import ArrowNext from '../components/ArrowNext';
-import ButtonNext from '../components/ButtonNext';
+import ButtonNext from '../components/Button';
 import CategoryButton from '../components/CategoryButton';
 import EventCard from '../components/EventCard';
 import Footer from '../components/Footer';
@@ -15,7 +15,7 @@ export default function Components() {
     <>
       <h1>Components</h1>
       <ArrowNext />
-      <ButtonNext />
+      <ButtonNext text='prueba' />
       <EventCard />
       <Header />
       <Footer />

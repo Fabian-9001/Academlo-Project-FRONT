@@ -10,7 +10,7 @@ export default function NewPost() {
 
   const router = useRouter();
 
-  let nextStep = (data) => {
+  let nextStep = (data: any) => {
     if (step === 1) {
       console.log(data, 'Paso 1');
       setStep(step + 1);

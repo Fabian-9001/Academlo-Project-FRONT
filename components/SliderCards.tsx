@@ -11,10 +11,9 @@ const SliderCards = () => {
       <div className="swiper-prev-slide scale-x-[-1] min-w-[50px]">
         <ArrowNext />
       </div>
-
       <div className=" flex items-center justify-center gap-[20px] w-full">
         <Swiper
-          className="h-[465px] "
+          className="h-[460px]"
           modules={[Navigation]}
           spaceBetween={20}
           slidesPerView={3}
@@ -29,7 +28,6 @@ const SliderCards = () => {
           <SwiperSlide>{EventCard}</SwiperSlide>
         </Swiper>
       </div>
-
       <div className="swiper-next-slide min-w-[50px]">
         <ArrowNext />
       </div>
