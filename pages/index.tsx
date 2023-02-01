@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import ArrowNext from '../components/ArrowNext';
+import BrandPage from '../components/BrandPage';
 import ButtonNext from '../components/ButtonNext';
 import EventCard from '../components/EventCard';
 import ExpandProfile from '../components/ExpandProfile';
@@ -36,6 +37,7 @@ export default function Home() {
         <Searcher />
         <StoreAndBrands />
         <ExpandProfile />
+        <BrandPage />
       </main>
       <Footer />
     </>
