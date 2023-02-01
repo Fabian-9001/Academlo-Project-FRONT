@@ -1,18 +1,11 @@
 import Head from 'next/head';
-import ArrowNext from '../components/ArrowNext';
-import BrandPage from '../components/BrandPage';
-import ButtonNext from '../components/ButtonNext';
-import EventCard from '../components/EventCard';
-import ExpandProfile from '../components/ExpandProfile';
+
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import LikeDisable from '../components/LikeDisable';
-import LikeEnable from '../components/LikeEnable';
 import NavBar from '../components/NavBar';
-import Person from '../components/Person';
-import Profile from '../components/Profile';
-import Searcher from '../components/Searcher';
-import StoreAndBrands from '../components/StoreAndBrands';
+import SliderCards from '../components/SliderCards';
+import SuggestedList from '../components/SuggestedList';
+
 export default function Home() {
   return (
     <>
@@ -24,20 +17,41 @@ export default function Home() {
       </Head>
       <NavBar />
       <Header />
-      <main className="bg-white ">
-        <Profile />
-        <h1>Home1</h1>
-        <ArrowNext />
-        <ButtonNext />
-        <EventCard />
-        <LikeDisable />
-        <LikeEnable />
-        <NavBar />
-        <Person />
-        <Searcher />
-        <StoreAndBrands />
-        <ExpandProfile />
-        <BrandPage />
+      <main className="bg-white pt-[85px]">
+        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto">
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
+              Populares en Querétaro
+            </h2>
+            <p className="font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-grayDark">
+              Lo que las personas piden más
+            </p>
+          </div>
+          <SliderCards />
+        </div>
+        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto">
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
+              Sugerencias para ti
+            </h2>
+            <p className="font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-grayDark">
+              Publicaciones que podrías colaborar
+            </p>
+          </div>
+          <SliderCards />
+        </div>
+        <SuggestedList />
+        <div className="flex flex-col gap-[35px] pb-[95px] pl-[20px] pt-[25px] sm:pb-[115px] sm:pt-[35px] max-w-[1000px] mx-auto">
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
+              Recientes
+            </h2>
+            <p className="font-roboto font-subtitle-2 text-subtitle-2 leading-subtitle-2 text-primary-grayDark">
+              Las personas últimanete están hablando de esto
+            </p>
+          </div>
+          <SliderCards />
+        </div>
       </main>
       <Footer />
     </>

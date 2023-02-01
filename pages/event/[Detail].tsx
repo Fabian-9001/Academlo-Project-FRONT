@@ -1,16 +1,16 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import Button from '../../components/Button';
-import Footer from '../../components/Footer';
 import Person from '../../components/Person';
-import SliderCards from '../../components/SliderCards';
+import Image from 'next/image';
+import Button from '../../components/Button';
 import SuggestedList from '../../components/SuggestedList';
+import SliderCards from '../../components/SliderCards';
+import Footer from '../../components/Footer';
 
 export default function Details() {
   return (
     <div className="bg-white">
       <div className="max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[1024px] sm:mx-auto sm:grid-cols-2 sm:pt-[100px]">
+        <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[1024px] sm:mx-auto sm:grid-cols-2">
           <header className="font-roboto p-[20px] sm:max-h-[315px]">
             <p className="font-[500] text-[16px] leading-[19px] text-primary-black pb-[5px]">
               Artista / Pop / Rock
