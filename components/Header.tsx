@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Searcher from './Searcher';
+import StoreAndBrands from './StoreAndBrands';
 
 const Header = () => {
   return (
@@ -16,9 +17,7 @@ const Header = () => {
         <Searcher />
       </div>
       <div className="flex gap-3 text-[#A7A6A7] text-[13px] font-normal mt-4 ">
-        <button className="bg-white px-8 py-2 rounded-[23px]">
-          Marcas y tiendas
-        </button>
+        <StoreAndBrands />
         <button className="bg-white px-8 py-2 rounded-[23px]">
           Artistas y conciertos
         </button>

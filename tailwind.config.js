@@ -26,7 +26,8 @@ module.exports = {
         'secondary-red': '#EF3F47',
       },
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif']
       },
       fontWeight: {
         'title-1': '900',
