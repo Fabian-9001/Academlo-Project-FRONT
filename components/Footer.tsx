@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="">
         <Searcher />
       </div>
-    </section>
+    </div>
   );
 };
 export default Footer;

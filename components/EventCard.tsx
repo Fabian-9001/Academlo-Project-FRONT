@@ -25,7 +25,7 @@ const EventCard = () => {
           alt="Image of the event"
           quality={100}
         />
-      </div>
+      </header>
 
       <div
         onClick={() => setIsEnable(!isEnable)}
