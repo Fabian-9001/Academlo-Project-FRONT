@@ -4,8 +4,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "SimonSiefke.prettier-vscode"
   }
 }

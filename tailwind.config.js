@@ -27,6 +27,7 @@ module.exports = {
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       fontWeight: {
         'title-1': '900',

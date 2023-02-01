@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <NavBar />
       <Header />
-      <main className="bg-white pt-[85px]">
+      <main className="bg-white pt-[85px] sm:pt-[75px]">
         <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto">
           <div className="flex flex-col gap-[10px]">
             <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
@@ -29,7 +29,7 @@ export default function Home() {
           </div>
           <SliderCards />
         </div>
-        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto">
+        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto sm:pb-[40px]">
           <div className="flex flex-col gap-[10px]">
             <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
               Sugerencias para ti
