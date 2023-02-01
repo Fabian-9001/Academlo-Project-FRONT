@@ -10,7 +10,7 @@ export default function Details() {
   return (
     <div className="bg-white">
       <div className="max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[1024px] sm:mx-auto sm:grid-cols-2">
+        <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[1024px] sm:mx-auto sm:grid-cols-2 sm:pt-[100px]">
           <header className="font-roboto p-[20px] sm:max-h-[315px]">
             <p className="font-[500] text-[16px] leading-[19px] text-primary-black pb-[5px]">
               Artista / Pop / Rock

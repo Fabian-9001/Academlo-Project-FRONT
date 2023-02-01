@@ -2,8 +2,8 @@ import Searcher from './Searcher';
 
 const Footer = () => {
   return (
-    <div className="container mx-auto h-[488px] w-[1280px]  bg-[url('/images/footerImg.png')] bg-no-repeat bg-cover bg-center">
-      <div className=" flex  w-full justify-center  pt-[302px]">
+    <div className="w-full h-[490px] relative bg-[url(/images/footerImg.png)] bg-center px-[25px] pt-[300px] ">
+      <div className="">
         <Searcher />
       </div>
     </div>

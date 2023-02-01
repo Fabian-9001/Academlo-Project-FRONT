@@ -15,11 +15,19 @@ const SliderCards = () => {
         <Swiper
           className="h-[460px]"
           modules={[Navigation]}
-          spaceBetween={20}
-          slidesPerView={3}
           navigation={{
             nextEl: '.swiper-next-slide',
             prevEl: '.swiper-prev-slide',
+          }}
+          breakpoints={{
+            415: {
+              slidesPerView: 1.25,
+              spaceBetween: 20,
+            },
+            450: {
+              slidesPerView: 1.35,
+              spaceBetween: 20,
+            },
           }}
         >
           <SwiperSlide>{EventCard}</SwiperSlide>

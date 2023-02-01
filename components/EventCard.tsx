@@ -16,12 +16,10 @@ const EventCard = () => {
   };
 
   return (
-    <div
-      onClick={navigate}
-      className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden mx-[5px]"
-    >
+    <div className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden mx-[5px]">
       <header className="w-full h-[240px]  relative">
         <Image
+          onClick={navigate}
           src={'/images/ExampleImg.png'}
           fill={true}
           alt="Image of the event"
@@ -63,7 +61,7 @@ const EventCard = () => {
         <div className="flex items-center gap-[10px] mt-[12px] ml-[30px]">
           <Person />
           <p className="font-roboto font-texto-2 text-texto-2 leading-texto-2 text-primary-blackLight mt-[5px]">
-            90’800’756 votos
+            90,800,756 votos
           </p>
         </div>
       </div>
