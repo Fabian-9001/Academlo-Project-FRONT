@@ -2,12 +2,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import InputCategory from '../components/InputCategory';
 
 export default function NewPost() {
   const [step, setStep] = useState(1);
-
+  const [isActive, setIsActive] = useState(false);
+  const [category, setCategory] = useState('Categoria');
   const { handleSubmit, register } = useForm();
-
   const router = useRouter();
 
   let nextStep = (data: any) => {
@@ -107,37 +108,81 @@ export default function NewPost() {
                   />
                 </div>
                 <div className="flex flex-col gap-[25px] sm:flex-row sm:gap-[20px]">
-                  <div className="flex items-center relative sm:w-[300px]">
-                    <input
-                      {...register('type')}
-                      className="w-full h-[50px] border-[1px] border-[#7D7D7D] rounded-[10px] bg-transparent text-black p-[15px]"
-                      type="text"
-                      id="type"
-                      placeholder="Tipo"
-                    />
-                    <Image
-                      className="absolute right-[25px]"
-                      src={'svg/arrowDown.svg'}
-                      width={20}
-                      height={15}
-                      alt=""
-                    />
-                  </div>
-                  <div className="flex items-center relative sm:w-[300px]">
-                    <input
-                      {...register('category')}
-                      className="w-full h-[50px] border-[1px] border-[#7D7D7D] rounded-[10px] bg-transparent text-black p-[15px]"
-                      type="text"
-                      id="category"
-                      placeholder="Categoría"
-                    />
-                    <Image
-                      className="absolute right-[25px]"
-                      src={'svg/arrowDown.svg'}
-                      width={20}
-                      height={15}
-                      alt=""
-                    />
+                  <div
+                    className="w-full min-h-[50px] h-auto flex flex-col gap-[15px] border-[1px] border-[#7D7D7D] rounded-[10px] relative bg-white text-black py-[15px] px-[20px]
+                     font-inter font-[400] text-[16px] leading-[24px] sm:w-[300px]"
+                  >
+                    <div className="flex items-center">
+                      <input
+                        {...(category === 'Categoria'
+                          ? ''
+                          : { ...register('hola') })}
+                        readOnly
+                        className="outline-none cursor-pointer bg-transparent text-[#7D7D7D]"
+                        type="text"
+                        value={category}
+                      />
+                      <Image
+                        onClick={() => setIsActive(!isActive)}
+                        className={`${isActive ? 'rotate-[180deg]' : ''}
+                        absolute right-[25px] cursor-pointer duration-[0.1s]`}
+                        src={'svg/arrowDown.svg'}
+                        width={20}
+                        height={15}
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      className={`${
+                        isActive ? '' : 'hidden'
+                      }  flex flex-col gap-[10px] duration-[0.5s] text-[#A7A6A7] `}
+                    >
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Ropa y accesorios"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Deportes"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Conciertos"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Meet & Greet"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="E-sport"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Pop / Rock"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Tecnología"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Hogar / Decoración"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Abastecimiento"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="relative">

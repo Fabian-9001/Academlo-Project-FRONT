@@ -61,9 +61,9 @@ module.exports = {
         'texto-2': '16px',
       },
       dropShadow: {
-        shadow: 'filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25))',
-      },
-    },
+        'shadow': '0px 2px 4px rgba(0, 0, 0, 0.25)'
+      }
+    }
   },
   plugins: [],
 };
