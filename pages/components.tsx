@@ -15,7 +15,7 @@ export default function Components() {
     <>
       <h1>Components</h1>
       <ArrowNext />
-      <ButtonNext text='prueba' />
+      <ButtonNext text="prueba" />
       <EventCard />
       <Header />
       <Footer />

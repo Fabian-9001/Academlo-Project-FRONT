@@ -26,8 +26,8 @@ module.exports = {
         'secondary-red': '#EF3F47',
       },
       fontFamily: {
-        'roboto': ['Roboto', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif']
+        roboto: ['Roboto', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       fontWeight: {
         'title-1': '900',
@@ -61,9 +61,9 @@ module.exports = {
         'texto-2': '16px',
       },
       dropShadow: {
-        'shadow': 'filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25))'
-      }
-    }
+        shadow: 'filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25))',
+      },
+    },
   },
   plugins: [],
 };

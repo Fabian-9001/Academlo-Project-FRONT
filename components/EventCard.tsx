@@ -18,7 +18,13 @@ const EventCard = () => {
   return (
     <div className="min-w-[300px] max-w-[375px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden">
       <div className="w-full h-[240px] bg-gray-300 relative ">
-        <Image src={''} fill={true} alt="Image of the event" quality={100} />
+        <Image
+          onClick={navigate}
+          src={''}
+          fill={true}
+          alt="Image of the event"
+          quality={100}
+        />
       </div>
 
       <div
