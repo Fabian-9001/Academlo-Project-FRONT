@@ -26,7 +26,6 @@ const EventCard = () => {
           quality={100}
         />
       </header>
-
       <div
         onClick={() => setIsEnable(!isEnable)}
         className="absolute top-[205px] right-[7%]"
