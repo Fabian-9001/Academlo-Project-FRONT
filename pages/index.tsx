@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <Header />
       <main className="bg-white pt-[85px] sm:pt-[75px]">
-        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto">
+        <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto md:pl-[0]">
           <div className="flex flex-col gap-[10px]">
             <h2 className="font-roboto font-title-2 text-title-2 leading-title-2 text-primary-blackLight">
               Populares en Querétaro

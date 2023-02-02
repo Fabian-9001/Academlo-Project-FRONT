@@ -12,7 +12,7 @@ const Searcher = () => {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className="w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between "
+      className="w-full max-w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between "
     >
       <input
         {...register('request')}
