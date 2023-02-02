@@ -6,34 +6,35 @@ import { useRouter } from 'next/router';
 const Header = () => {
   const router = useRouter();
   return (
-    <section className="w-full h-[490px] bg-[url('/images/headerImg.png')] bg-center bg-cover bg-no-repeat pt-[70px] pb-[95px] flex flex-col items-center">
+    <section className="w-full h-[480px] py-[70px] px-[20px] bg-[url(/images/headerImg.png)] bg-center bg-cover bg-no-repeat">
       <Image
+        className="mx-auto mb-[30px]"
         width={215}
         height={190}
         src="/images/imgHeader.png"
         alt="header img"
       />
-      <div className="w-full mx-auto flex justify-center px-[20px] mt-[60px]">
+      <div className="w-full mx-auto flex justify-center">
         <Searcher />
       </div>
-      <div className="w-full flex justify-center gap-[10px] p-[20px]">
+      <div className="flex justify-center gap-[10px] text-[#A7A6A7] text-[13px] font-normal mt-[20px]">
         <div
-          className="hover:scale-[1.05] duration-[0.3s]"
-          onClick={() => router.push('/brands')}
-        >
-          <CategoryButton style={30} text="Marcas y tiendas" />
-        </div>
-        <div
-          className="hover:scale-[1.05] duration-[0.3s]"
           onClick={() => router.push('/artists')}
+          className="hover:scale-[1.05] duration-[0.5s]"
         >
-          <CategoryButton style={30} text="Artistas y conciertos" />
+          <CategoryButton style={true} text="Artistas y conciertos" />
         </div>
         <div
-          className="hover:scale-[1.05] duration-[0.3s]"
           onClick={() => router.push('/tournaments')}
+          className="hover:scale-[1.05] duration-[0.5s]"
         >
-          <CategoryButton style={30} text="Torneos" />
+          <CategoryButton style={true} text="Torneos" />
+        </div>
+        <div
+          onClick={() => router.push('/brands')}
+          className="hover:scale-[1.05] duration-[0.5s]"
+        >
+          <CategoryButton style={true} text="Marcas y tiendas" />
         </div>
       </div>
     </section>

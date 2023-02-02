@@ -1,12 +1,17 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const NavProfile = () => {
+  const router = useRouter();
   return (
     <div>
       <nav className="h-[71px] bg-black relative mx-auto p-5  px-6 max-w-[1280px]">
         <div className=" justify-between text-[11px]  font-roboto font-[500] mx-auto  flex ">
           <div>
             <Image
+              className="cursor-pointer"
+              onClick={() => router.push('/')}
               width={62}
               height={30}
               src="/images/logoNav.png"
@@ -24,12 +29,12 @@ const NavProfile = () => {
                   alt="plus"
                 />
               </span>
-              <a
-                href=""
+              <Link
+                href="/new-post"
                 className=" hidden md:inline  text-blue-800  text-[12px]"
               >
                 Crear publicación
-              </a>
+              </Link>
             </div>
             <div className="flex gap-1">
               <span>

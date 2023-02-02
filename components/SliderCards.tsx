@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useSwiper } from 'swiper/react';
 
 const SliderCards = () => {
   return (
@@ -22,35 +21,39 @@ const SliderCards = () => {
           }}
           breakpoints={{
             415: {
-              slidesPerView: 1.3,
+              slidesPerView: 1.2,
               spaceBetween: 20,
             },
-            450: {
-              slidesPerView: 1.5,
+            467: {
+              slidesPerView: 1.4,
               spaceBetween: 20,
             },
-            530: {
-              slidesPerView: 1.7,
+            519: {
+              slidesPerView: 1.6,
               spaceBetween: 20,
             },
-            600: {
-              slidesPerView: 1.9,
+            571: {
+              slidesPerView: 1.8,
               spaceBetween: 20,
             },
-            670: {
-              slidesPerView: 2.1,
+            624: {
+              slidesPerView: 2,
               spaceBetween: 20,
             },
-            740: {
-              slidesPerView: 2.3,
+            676: {
+              slidesPerView: 2.2,
               spaceBetween: 20,
             },
-            810: {
-              slidesPerView: 2.5,
+            728: {
+              slidesPerView: 2.4,
               spaceBetween: 20,
             },
-            870: {
-              slidesPerView: 2.7,
+            781: {
+              slidesPerView: 2.6,
+              spaceBetween: 20,
+            },
+            833: {
+              slidesPerView: 2.8,
               spaceBetween: 20,
             },
             940: {
@@ -64,10 +67,9 @@ const SliderCards = () => {
           <SwiperSlide>{EventCard}</SwiperSlide>
           <SwiperSlide>{EventCard}</SwiperSlide>
         </Swiper>
-        <SlideNextButton />
       </div>
 
-      <div className=" min-w-[50px]">
+      <div className="swiper-next-slide min-w-[50px]">
         <ArrowNext />
       </div>
     </div>
@@ -75,17 +77,3 @@ const SliderCards = () => {
 };
 
 export default SliderCards;
-
-// some-inner-component.jsx
-export function SlideNextButton() {
-  const swiper = useSwiper();
-
-  return (
-    <button
-      className="w-50px h-[50px] bg-black"
-      onClick={() => swiper.slideNext()}
-    >
-      Slide to the next slide
-    </button>
-  );
-}

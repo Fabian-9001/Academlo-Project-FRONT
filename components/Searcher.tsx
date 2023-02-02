@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 
-const Searcher = () => {
+const Searcher = ({ style }: { style?: boolean }) => {
   const { handleSubmit, register, reset } = useForm();
   let submit = (data: any) => {
     console.log(data);
@@ -11,7 +11,9 @@ const Searcher = () => {
   return (
     <form
       onSubmit={handleSubmit(submit)}
-      className="w-full max-w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between "
+      className={`${
+        style ? 'border-[1px] border-[#A7A6A7]' : ''
+      } w-full max-w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between `}
     >
       <input
         {...register('request')}

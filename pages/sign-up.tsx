@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function SignUp() {
   return (
-    <div className="grid max-w-[1280px] w-fill font-roboto mx-auto grid-cols-1 md:grid-cols-2">
+    <div className="grid max-w-[1280px] w-fill bg-white font-roboto mx-auto grid-cols-1 md:grid-cols-2">
       <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/imgSignUp.png')] ">
         <div className="flex  mt-[450px] justify-center">
           <div>
@@ -68,7 +68,6 @@ export default function SignUp() {
               />
             </div>
           </div>
-
           <div className="mt-4 mb-5">
             <label className="text-#1D1C3F font-bold mb-1 text-lg">
               Password
@@ -78,7 +77,6 @@ export default function SignUp() {
               type="password"
             />
           </div>
-
           <button className="text-white mt-2 h-12 rounded-md bg-blue-800">
             Crear cuenta
           </button>

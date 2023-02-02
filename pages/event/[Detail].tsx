@@ -5,10 +5,46 @@ import Button from '../../components/Button';
 import SuggestedList from '../../components/SuggestedList';
 import SliderCards from '../../components/SliderCards';
 import Footer from '../../components/Footer';
+import NavBar from '../../components/NavBar';
+import Searcher from '../../components/Searcher';
+import CategoryButton from '../../components/CategoryButton';
+import { useRouter } from 'next/router';
 
 export default function Details() {
+  const router = useRouter();
   return (
     <div className="bg-white">
+      <NavBar />
+      <div className="w-full h-[115px]  shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] ">
+        <div className="max-w-[1280px] px-[20px] flex gap-[10px] justify-between items-center  pt-[40px] pb-[30px] md:gap-[170px] mx-auto lg:px-[170px] ">
+          <div className="">
+            <button className="w-[50px] h-[45px] rounded-[25px] bg-[url('/svg/list.svg')] bg-no-repeat bg-center border-[1px] border-[#A7A6A7] md:hidden"></button>
+            <div className="hidden md:flex md:gap-[10px]">
+              <div
+                onClick={() => router.push('/artists')}
+                className="hover:scale-[1.05] duration-[0.5s]"
+              >
+                <CategoryButton text="Artistas y conciertos" />
+              </div>
+              <div
+                onClick={() => router.push('/tournaments')}
+                className="hover:scale-[1.05] duration-[0.5s]"
+              >
+                <CategoryButton text="Torneos" />
+              </div>
+              <div
+                onClick={() => router.push('/brands')}
+                className="hover:scale-[1.05] duration-[0.5s]"
+              >
+                <CategoryButton text="Marcas y tiendas" />
+              </div>
+            </div>
+          </div>
+          <div className="w-full sm:justify-center mx-auto min-w-[315px] ">
+            <Searcher style={true} />
+          </div>
+        </div>
+      </div>
       <div className="max-w-[1280px] mx-auto">
         <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[1024px] sm:mx-auto sm:grid-cols-2 sm:pt-[100px]">
           <header className="font-roboto p-[20px] sm:max-h-[315px]">
@@ -39,7 +75,7 @@ export default function Details() {
           <div className="min-w-[375px] mx-auto min-h-[250px] max-w-[540px] max-h-[380px] mb-[30px] p-[20px] relative row-span-2 sm:mb-[0] sm:w-full">
             <Image src={'/images/ExampleImg2.png'} fill={true} alt="" />
           </div>
-          <footer className="w-full sm:pr-[20px] p-[20px]">
+          <footer className="w-full px-[10px] sm:pr-[20px] sm:px-[20px]">
             <Button text="Votar" />
           </footer>
         </div>

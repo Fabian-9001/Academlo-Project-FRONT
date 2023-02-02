@@ -4,7 +4,7 @@ import NavProfile from '../components/NavProfile';
 
 export default function Profile() {
   return (
-    <div className="">
+    <div className="bg-white">
       <NavProfile />
       <div>
         <div className="grid relative max-w-[1280px] h-[129px] bg-[#1B4DB1] w-full font-roboto mx-auto grid-cols-1">
@@ -27,25 +27,21 @@ export default function Profile() {
           Mis publicaciones
         </p>
       </div>
-      <div className="grid  mt-16  sm:grid-rows-2 grid-cols-1 ">
-        <div className="grid gap-y-11  grid-cols-1 sm:grid-cols-3">
-          <div className="flex justify-center ml-4 mr-4">
-            <EventCard />
-          </div>
-          <div className="flex justify-center ml-4 mr-4">
-            <EventCard />
-          </div>
-          <div className="flex justify-center ml-4 mr-4">
-            <EventCard />
-          </div>
+      <div className="grid mx-auto max-w-[964px] mt-16 grid-cols-1 gap-y-11 sm:grid-cols-1 md:grid-cols-3  ">
+        <div className="flex justify-center ml-4 mr-4">
+          <EventCard />
         </div>
-        <div className="grid gap-y-11  grid-cols-1 sm:grid-cols-3">
-          <div className="flex justify-center ml-4 mr-4">
-            <EventCard />
-          </div>
-          <div className="flex justify-center ml-4 mr-4">
-            <EventCard />
-          </div>
+        <div className="flex justify-center ml-4 mr-4">
+          <EventCard />
+        </div>
+        <div className="flex justify-center ml-4 mr-4">
+          <EventCard />
+        </div>
+        <div className="flex justify-center ml-4 mr-4">
+          <EventCard />
+        </div>
+        <div className="flex justify-center ml-4 mr-4">
+          <EventCard />
         </div>
       </div>
       <div className="flex justify-center mt-20">
