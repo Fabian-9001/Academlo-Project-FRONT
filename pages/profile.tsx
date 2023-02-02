@@ -27,7 +27,7 @@ export default function Profile() {
           Mis publicaciones
         </p>
       </div>
-      <div className="grid mx-auto max-w-[964px] mt-16 grid-cols-1 gap-y-11 sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3  ">
+      <div className="grid mx-auto max-w-[964px] mt-16 grid-cols-1 gap-y-11 sm:grid-cols-1 md:grid-cols-3  ">
         <div className="flex justify-center ml-4 mr-4">
           <EventCard />
         </div>
