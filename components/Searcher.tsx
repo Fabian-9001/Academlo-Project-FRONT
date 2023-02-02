@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const Searcher = () => {

@@ -1,9 +1,12 @@
 import Head from 'next/head';
+
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+
 import SliderCards from '../components/SliderCards';
 import SuggestedList from '../components/SuggestedList';
 
+import NavBar from '../components/NavBar';
 export default function Home() {
   return (
     <>
@@ -13,6 +16,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar />
       <Header />
       <main className="bg-white pt-[85px] sm:pt-[75px]">
         <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[1000px] mx-auto md:pl-[0]">

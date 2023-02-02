@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import LikeDisable from './LikeDisable';
 import LikeEnable from './LikeEnable';
-import Link from 'next/link';
 import Person from './Person';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 const EventCard = () => {
   const [isEnable, setIsEnable] = useState(false);

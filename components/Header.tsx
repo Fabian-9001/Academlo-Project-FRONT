@@ -3,6 +3,7 @@ import CategoryButton from './CategoryButton';
 import Searcher from './Searcher';
 import { useRouter } from 'next/router';
 
+
 const Header = () => {
   const router = useRouter();
   return (
@@ -39,5 +40,4 @@ const Header = () => {
     </section>
   );
 };
-
 export default Header;
