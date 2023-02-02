@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 
-const Searcher = ({ style }: { style: boolean }) => {
+const Searcher = ({ style }: { style?: boolean }) => {
   const { handleSubmit, register, reset } = useForm();
   let submit = (data: any) => {
     console.log(data);
