@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function SignIn() {
   return (
-    <div className="grid max-w-[1280px] w-full font-roboto mx-auto grid-cols-1 md:grid-cols-2">
+    <div className="grid max-w-[1280px] bg-white w-full font-roboto mx-auto grid-cols-1 md:grid-cols-2">
       <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/bgImgLogin.png')] ">
         <div className="flex  mt-[450px] justify-center">
           <div>
@@ -57,7 +57,6 @@ export default function SignIn() {
               type="password"
             />
           </div>
-
           <button className="text-white mt-2 h-12 rounded-md bg-blue-800">
             Log in
           </button>

@@ -1,13 +1,14 @@
 import Footer from '../components/Footer';
-import NavProfile from '../components/NavProfile';
 import Searcher from '../components/Searcher';
 import SliderCards from '../components/SliderCards';
 import SuggestedList from '../components/SuggestedList';
+import CategoryButton from '../components/CategoryButton';
+import { useRouter } from 'next/router';
 
 export default function Brands() {
+  const router = useRouter();
   return (
     <div>
-      <NavProfile />
       <div className="  justify-center   sm:grid-cols-1  mx-auto h-[204px] w-full  max-w-[1280px]  bg-[url('/images/mobile/brandmobile.png')] bg-no-repeat bg-cover sm:bg-[url('/images/desktop/brandDesktop.png')] bg-center">
         <div className="pt-6 mx-auto px-3">
           <p className="text-base font-roboto font-medium">Home / Marcas</p>
@@ -19,26 +20,33 @@ export default function Brands() {
           </p>
         </div>
       </div>
-      <div className="mx-auto  gapx-20 px-3 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2">
-        <div className="flex justify-end gap-3 xs:mx-auto text-[#A7A6A7] text-[13px] font-normal mt-4 ">
-          <button className="w-[141px] h-[45px] rounded-[25px] bg-white py-[15px] px-[20px] flex items-center justify-center border-[1px] border-[#A7A6A7]">
-            <p className="font-roboto  font-[500] text-[13px] leading-[15px] text-[#A7A6A7] ">
-              Marcas y tiendas
-            </p>
-          </button>
-          <button className="w-[141px] h-[45px] rounded-[25px] bg-white py-[15px] px-[20px] flex items-center justify-center border-[1px] border-[#A7A6A7]">
-            <p className="font-roboto font-[500] text-[13px] leading-[15px] text-[#A7A6A7] ">
-              Artistas y conciertos
-            </p>
-          </button>
-          <button className="w-[141px] h-[45px] rounded-[25px] bg-white py-[15px] px-[20px] flex items-center justify-center border-[1px] border-[#A7A6A7]">
-            <p className="font-roboto font-[500] text-[13px] leading-[15px] text-[#A7A6A7] ">
-              Torneos
-            </p>
-          </button>
-        </div>
-        <div className="pt-4 xs:mx-auto">
-          <Searcher />
+      <div className="w-full bg-white h-[115px]  shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] ">
+        <div className="max-w-[1280px] flex-wrap px-[20px] flex gap-[10px] justify-center items-center  pt-[40px] pb-[30px]  mx-auto  ">
+          <div className="flex flex-wrap ">
+            <div className="flex gap-[10px]">
+              <div
+                onClick={() => router.push('/artists')}
+                className="hover:scale-[1.05] duration-[0.5s]"
+              >
+                <CategoryButton text="Artistas y conciertos" />
+              </div>
+              <div
+                onClick={() => router.push('/tournaments')}
+                className="hover:scale-[1.05] duration-[0.5s]"
+              >
+                <CategoryButton text="Torneos" />
+              </div>
+              <div
+                onClick={() => router.push('/brands')}
+                className="hover:scale-[1.05] duration-[0.5s]"
+              >
+                <CategoryButton text="Marcas y tiendas" />
+              </div>
+            </div>
+          </div>
+          <div className="w-[50%] justify-center mx-auto min-w-[315px] ">
+            <Searcher style={true} />
+          </div>
         </div>
       </div>
 

@@ -184,6 +184,82 @@ export default function NewPost() {
                       />
                     </div>
                   </div>
+                  <div
+                    className="w-full min-h-[50px] h-auto flex flex-col gap-[15px] border-[1px] border-[#7D7D7D] rounded-[10px] relative bg-white text-black py-[15px] px-[20px]
+                     font-inter font-[400] text-[16px] leading-[24px] sm:w-[300px]"
+                  >
+                    <div className="flex items-center">
+                      <input
+                        {...(category === 'Categoria'
+                          ? ''
+                          : { ...register('hola') })}
+                        readOnly
+                        className="outline-none cursor-pointer bg-transparent text-[#7D7D7D]"
+                        type="text"
+                        value={category}
+                      />
+                      <Image
+                        onClick={() => setIsActive(!isActive)}
+                        className={`${isActive ? 'rotate-[180deg]' : ''}
+                        absolute right-[25px] cursor-pointer duration-[0.1s]`}
+                        src={'svg/arrowDown.svg'}
+                        width={20}
+                        height={15}
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      className={`${
+                        isActive ? '' : 'hidden'
+                      }  flex flex-col gap-[10px] duration-[0.5s] text-[#A7A6A7] `}
+                    >
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Ropa y accesorios"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Deportes"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Conciertos"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Meet & Greet"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="E-sport"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Pop / Rock"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Tecnología"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Hogar / Decoración"
+                      />
+                      <InputCategory
+                        setIsActive={setIsActive}
+                        setCategory={setCategory}
+                        text="Abastecimiento"
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="relative">
                   <label
@@ -214,7 +290,7 @@ export default function NewPost() {
                 </div>
               </div>
             ) : (
-              <div className="flex gap-[20px] border-[1px] border-primary-grayDark rounded-[10px] p-[25px] mb-[80px]">
+              <div className="flex flex-wrap gap-[20px] border-[1px] border-primary-grayDark rounded-[10px] p-[25px] mb-[80px] justify-center sm:flex-nowrap">
                 <div className="w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')] bg-no-repeat bg-center">
                   <input
                     {...register('firstFile')}

@@ -19,7 +19,6 @@ const EventCard = () => {
     <div className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden mx-[5px]">
       <header className="w-full h-[240px]  relative">
         <Image
-          onClick={navigate}
           src={'/images/ExampleImg.png'}
           fill={true}
           alt="Image of the event"
@@ -41,7 +40,10 @@ const EventCard = () => {
         )}
       </div>
       <div className="w-full h-[215px]">
-        <h3 className="font-roboto font-title-3 text-title-3 leading-title-3 text-primary-blackLight mt-[15px] ml-[23px]">
+        <h3
+          onClick={navigate}
+          className="font-roboto font-title-3 text-title-3 leading-title-3 text-primary-blackLight mt-[15px] ml-[23px] cursor-pointer"
+        >
           Concierto de Lady Gaga
         </h3>
 

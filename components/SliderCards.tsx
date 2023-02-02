@@ -21,11 +21,43 @@ const SliderCards = () => {
           }}
           breakpoints={{
             415: {
-              slidesPerView: 1.25,
+              slidesPerView: 1.2,
               spaceBetween: 20,
             },
-            450: {
-              slidesPerView: 1.35,
+            467: {
+              slidesPerView: 1.4,
+              spaceBetween: 20,
+            },
+            519: {
+              slidesPerView: 1.6,
+              spaceBetween: 20,
+            },
+            571: {
+              slidesPerView: 1.8,
+              spaceBetween: 20,
+            },
+            624: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            676: {
+              slidesPerView: 2.2,
+              spaceBetween: 20,
+            },
+            728: {
+              slidesPerView: 2.4,
+              spaceBetween: 20,
+            },
+            781: {
+              slidesPerView: 2.6,
+              spaceBetween: 20,
+            },
+            833: {
+              slidesPerView: 2.8,
+              spaceBetween: 20,
+            },
+            940: {
+              slidesPerView: 3,
               spaceBetween: 20,
             },
           }}
