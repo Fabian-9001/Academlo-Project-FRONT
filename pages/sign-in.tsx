@@ -1,6 +1,20 @@
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
+import { login } from '../lib/services/auth.services';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 export default function SignIn() {
+  const { handleSubmit, register } = useForm();
+  const router = useRouter();
+  const submit = (data: any) => {
+    login(data)
+      .then((res) => {
+        Cookies.set('token', res.data.token);
+        router.push('/');
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="grid max-w-[1280px] bg-white w-full font-roboto mx-auto grid-cols-1 md:grid-cols-2">
       <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/bgImgLogin.png')] ">
@@ -38,12 +52,16 @@ export default function SignIn() {
             Login with the data you entered during your registration.
           </p>
         </div>
-        <form className="flex  flex-col w-full px-4 bg-white  ">
+        <form
+          onSubmit={handleSubmit(submit)}
+          className="flex  flex-col w-full px-4 bg-white  "
+        >
           <div>
             <label className=" mt-2 text-#1D1C3F  mb-1 font-bold text-lg">
               Email
             </label>
             <input
+              {...register('email')}
               className="w-full pl-[25px] leading-[15px]  border-slate-500 outline-none bg-white border-2 rounded-md h-14"
               type="email"
             />
@@ -53,6 +71,7 @@ export default function SignIn() {
               Password
             </label>
             <input
+              {...register('password')}
               className="w-full pl-[25px] leading-[15px] border-slate-500 outline-none bg-white border-2 rounded-md h-14"
               type="password"
             />

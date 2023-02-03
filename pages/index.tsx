@@ -1,12 +1,10 @@
 import Head from 'next/head';
-
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-
 import SliderCards from '../components/SliderCards';
 import SuggestedList from '../components/SuggestedList';
-
 import NavBar from '../components/NavBar';
+
 export default function Home() {
   return (
     <>

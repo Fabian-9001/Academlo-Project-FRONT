@@ -11,8 +11,8 @@ export default function Tournaments() {
   return (
     <div>
       <NavProfile />
-      <div className="  justify-center   sm:grid-cols-1  mx-auto h-[204px] w-full  max-w-[1280px]   bg-no-repeat bg-cover bg-[url('/images/desktop/torneos.png')] bg-center">
-        <div className="pt-6 mx-auto px-3">
+      <div className="  justify-center   sm:grid-cols-1  mx-auto h-[204px] w-full     bg-no-repeat bg-cover bg-[url('/images/desktop/torneos.png')] bg-center">
+        <div className="pt-6 mx-auto px-3 max-w-[1280px]">
           <p className="text-base font-roboto font-medium">Home / Marcas</p>
           <p className="text-[48px] font-Roboto font-bold text-[#F3F243]">
             Torneos y Eventos

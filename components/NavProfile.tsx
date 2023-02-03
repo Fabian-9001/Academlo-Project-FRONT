@@ -51,7 +51,7 @@ const NavProfile = () => {
               </a>
             </div>
 
-            <a href="#">
+            <div onClick={() => router.push('/profile')}>
               <div className="w-[34px] h-[34px] border ml-4 border-white rounded-3xl">
                 <button>
                   <Image
@@ -63,7 +63,7 @@ const NavProfile = () => {
                   />
                 </button>
               </div>
-            </a>
+            </div>
             <a href="#" className="">
               hcoder@gmail.com
             </a>

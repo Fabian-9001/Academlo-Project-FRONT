@@ -1,6 +1,12 @@
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
 
 export default function SignUp() {
+  const { handleSubmit, register } = useForm();
+  const submit = (data: any) => {
+    console.log(data);
+  };
+
   return (
     <div className="grid max-w-[1280px] w-fill bg-white font-roboto mx-auto grid-cols-1 md:grid-cols-2">
       <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/imgSignUp.png')] ">
@@ -38,12 +44,16 @@ export default function SignUp() {
             Login with the data you entered during your registration.
           </p>
         </div>
-        <form className="flex  flex-col w-full px-4 bg-white  ">
+        <form
+          onSubmit={handleSubmit(submit)}
+          className="flex  flex-col w-full px-4 bg-white  "
+        >
           <div>
             <label className=" mt-2 text-#1D1C3F  mb-1 font-bold text-lg">
               Email
             </label>
             <input
+              {...register('email')}
               className="w-full pl-[25px] leading-[15px]  border-slate-500 outline-none bg-white border-2 rounded-md h-14"
               type="email"
             />
@@ -54,6 +64,7 @@ export default function SignUp() {
                 Nombre
               </label>
               <input
+                {...register('firstName')}
                 className="w-full pl-[25px] leading-[15px]  border-slate-500 outline-none bg-white border-2 rounded-md h-14"
                 type="text"
               />
@@ -63,6 +74,7 @@ export default function SignUp() {
                 Apellido
               </label>
               <input
+                {...register('lastName')}
                 className="w-full pl-[25px] leading-[15px] border-slate-500 outline-none bg-white border-2 rounded-md h-14"
                 type="text"
               />
@@ -73,6 +85,7 @@ export default function SignUp() {
               Password
             </label>
             <input
+              {...register('password')}
               className="w-full pl-[25px] leading-[15px] border-slate-500 outline-none bg-white border-2 rounded-md h-14"
               type="password"
             />
