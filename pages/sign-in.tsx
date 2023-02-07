@@ -1,24 +1,26 @@
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { login } from '../lib/services/auth.services';
-import Cookies from 'js-cookie';
-import { useRouter } from 'next/router';
+import { setUserState } from '../redux/slices/user.slice';
 
 export default function SignIn() {
   const { handleSubmit, register } = useForm();
-  const router = useRouter();
+  const dispatch = useDispatch();
   const submit = (data: any) => {
     login(data)
       .then((res) => {
-        Cookies.set('token', res.data.token);
-        router.push('/');
+        Cookies.set('token', res.data.token[0].public);
+        dispatch(setUserState(true));
+        window.location.href = '/profile';
       })
       .catch((err) => console.log(err));
   };
   return (
-    <div className="grid max-w-[1280px] bg-white w-full font-roboto mx-auto grid-cols-1 md:grid-cols-2">
-      <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/bgImgLogin.png')] ">
-        <div className="flex  mt-[450px] justify-center">
+    <div className="grid  bg-white w-full min-h-[100vh] font-roboto mx-auto grid-cols-1 md:grid-cols-2 pb-[85px] md:pb-0">
+      <div className="hidden  md:flex md:justify-center md:items-center bg-center bg-no-repeat bg-cover bg-[url('/images/desktop/bgImgLogin.png')] ">
+        <div className="flex items-center mt-[150px]  justify-center">
           <div>
             <Image
               width={245}
@@ -37,7 +39,7 @@ export default function SignIn() {
           </div>
         </div>
       </div>
-      <div className="container grid grid-cols-1 md:px-10 items-center  text-black mx-auto h-[736px]">
+      <div className="max-w-[1280px] grid grid-cols-1 md:px-10 items-center  text-black m-auto h-[736px]">
         <div className="mt-16 flex justify-center">
           <Image
             width={187}
@@ -46,7 +48,7 @@ export default function SignIn() {
             alt="img login"
           />
         </div>
-        <div className="bg-white w-full px-4 mt-7 mx-2">
+        <div className="bg-white w-full px-[8px] mt-7 mx-2">
           <p className="font-bold text-[32px] text-inter">Login</p>
           <p className="text-#4D4D4D mt-1 leading-5 text-[16px] font-400 font-inter text-inter">
             Login with the data you entered during your registration.
@@ -80,7 +82,7 @@ export default function SignIn() {
             Log in
           </button>
         </form>
-        <p className="w-1/2 text-center text-#4D4D4D -mt-6 mx-auto leading-5 text-[16px] font-400 font-inter text-inter ">
+        <p className="w-1/2 text-center text-#4D4D4D -mt-6 mx-auto leading-5 text-[16px] font-400 font-inter text-inter pt-[20px] ">
           Did you forget your password?
         </p>
       </div>

@@ -1,16 +1,23 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
+import { signUp } from '../lib/services/auth.services';
 
 export default function SignUp() {
   const { handleSubmit, register } = useForm();
+  const router = useRouter();
   const submit = (data: any) => {
-    console.log(data);
+    signUp(data)
+      .then(() => {
+        router.push('/profile');
+      })
+      .catch((err) => console.log(err));
   };
-
   return (
-    <div className="grid max-w-[1280px] w-fill bg-white font-roboto mx-auto grid-cols-1 md:grid-cols-2">
-      <div className="h-[832px] hidden md:inline bg-center bg-no-repeat bg-auto bg-[url('/images/desktop/imgSignUp.png')] ">
-        <div className="flex  mt-[450px] justify-center">
+    <div className="grid w-full min-h-[100vh] bg-white font-roboto mx-auto grid-cols-1 md:grid-cols-2 pb-[45px] md:pb-0">
+      <div className=" hidden md:flex md:justify-center md:items-center bg-center bg-no-repeat bg-cover bg-[url('/images/desktop/imgSignUp.png')] ">
+        <div className="flex items-center mt-[150px]  justify-center">
           <div>
             <Image
               width={245}
@@ -29,7 +36,7 @@ export default function SignUp() {
           </div>
         </div>
       </div>
-      <div className="container grid grid-cols-1 md:px-10 items-center  text-black mx-auto h-[736px]">
+      <div className="max-w-[1280px] grid grid-cols-1 md:px-10 items-center  text-black m-auto h-[736px]">
         <div className="mt-16 flex justify-center">
           <Image
             width={187}
@@ -38,15 +45,15 @@ export default function SignUp() {
             alt="img login"
           />
         </div>
-        <div className="bg-white w-full px-4 mt-7 mx-2">
-          <p className="font-bold text-[32px] text-inter">Login</p>
+        <div className="bg-white w-full px-[17px] pb-[10px] mt-7">
+          <p className="font-bold text-[32px] text-inter">Sign up</p>
           <p className="text-#4D4D4D mt-1 leading-5 text-[16px] font-400 font-inter text-inter">
-            Login with the data you entered during your registration.
+            Enter your data to create an account
           </p>
         </div>
         <form
           onSubmit={handleSubmit(submit)}
-          className="flex  flex-col w-full px-4 bg-white  "
+          className="flex flex-col gap-[5px] w-full px-4 bg-white  "
         >
           <div>
             <label className=" mt-2 text-#1D1C3F  mb-1 font-bold text-lg">
@@ -80,7 +87,7 @@ export default function SignUp() {
               />
             </div>
           </div>
-          <div className="mt-4 mb-5">
+          <div className=" mb-5">
             <label className="text-#1D1C3F font-bold mb-1 text-lg">
               Password
             </label>
@@ -94,9 +101,12 @@ export default function SignUp() {
             Crear cuenta
           </button>
         </form>
-        <p className="w-1/2 text-center text-#4D4D4D mt-4 mx-auto leading-5 text-[16px] font-400 font-inter text-inter ">
+        <Link
+          href={'/sign-in'}
+          className="w-1/2 text-center text-#4D4D4D mt-4 mx-auto leading-5 text-[16px] font-400 font-inter text-inter pt-[20px]"
+        >
           or Login
-        </p>
+        </Link>
       </div>
     </div>
   );

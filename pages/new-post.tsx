@@ -2,21 +2,27 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import InputCategory from '../components/InputCategory';
+import { useTags } from '../lib/services/tags.services';
+import { useCategories } from '../lib/services/categories.services';
+import { createPublication } from '../lib/services/publications.services';
 
 export default function NewPost() {
   const [step, setStep] = useState(1);
-  const [isActive, setIsActive] = useState(false);
-  const [category, setCategory] = useState('Categoria');
   const { handleSubmit, register } = useForm();
+  const { data: tags } = useTags();
+  const { data: categories } = useCategories();
   const router = useRouter();
 
   let nextStep = (data: any) => {
     if (step === 1) {
-      console.log(data, 'Paso 1');
       setStep(step + 1);
     } else {
-      console.log(data, 'Publicado');
+      createPublication(data)
+        .then((res) => {
+          console.log(res.data);
+          router.push('/profile');
+        })
+        .catch((err) => console.log(err));
     }
   };
 
@@ -101,164 +107,44 @@ export default function NewPost() {
                     Titulo de publicación
                   </label>
                   <input
-                    {...register('titlePost')}
+                    {...register('title')}
                     className="w-full max-w-[620px] h-[50px] border-[1px] border-[#7D7D7D] rounded-[10px] bg-transparent text-black p-[15px]"
                     type="text"
                     id="titlePost"
                   />
                 </div>
                 <div className="flex flex-col gap-[25px] sm:flex-row sm:gap-[20px]">
-                  <div
-                    className="w-full min-h-[50px] h-auto flex flex-col gap-[15px] border-[1px] border-[#7D7D7D] rounded-[10px] relative bg-white text-black py-[15px] px-[20px]
+                  <div className="">
+                    <label>
+                      <select
+                        className="w-full min-h-[50px] h-auto flex flex-col gap-[15px] border-[1px] border-[#7D7D7D] rounded-[10px] relative bg-white text-black py-[15px] px-[20px]
                      font-inter font-[400] text-[16px] leading-[24px] sm:w-[300px]"
-                  >
-                    <div className="flex items-center">
-                      <input
-                        {...(category === 'Categoria'
-                          ? ''
-                          : { ...register('hola') })}
-                        readOnly
-                        className="outline-none cursor-pointer bg-transparent text-[#7D7D7D]"
-                        type="text"
-                        value={category}
-                      />
-                      <Image
-                        onClick={() => setIsActive(!isActive)}
-                        className={`${isActive ? 'rotate-[180deg]' : ''}
-                        absolute right-[25px] cursor-pointer duration-[0.1s]`}
-                        src={'svg/arrowDown.svg'}
-                        width={20}
-                        height={15}
-                        alt=""
-                      />
-                    </div>
-                    <div
-                      className={`${
-                        isActive ? '' : 'hidden'
-                      }  flex flex-col gap-[10px] duration-[0.5s] text-[#A7A6A7] `}
-                    >
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Ropa y accesorios"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Deportes"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Conciertos"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Meet & Greet"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="E-sport"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Pop / Rock"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Tecnología"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Hogar / Decoración"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Abastecimiento"
-                      />
-                    </div>
+                        {...register('tags')}
+                      >
+                        {tags?.map((tag) => (
+                          <option
+                            className="font-roboto py-[50px]"
+                            key={tag.id}
+                            value={tag.id}
+                          >
+                            {tag.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
                   </div>
-                  <div
-                    className="w-full min-h-[50px] h-auto flex flex-col gap-[15px] border-[1px] border-[#7D7D7D] rounded-[10px] relative bg-white text-black py-[15px] px-[20px]
+                  <div className="">
+                    <select
+                      className="w-full min-h-[50px] h-auto flex flex-col gap-[15px] border-[1px] border-[#7D7D7D] rounded-[10px] relative bg-white text-black py-[15px] px-[20px]
                      font-inter font-[400] text-[16px] leading-[24px] sm:w-[300px]"
-                  >
-                    <div className="flex items-center">
-                      <input
-                        {...(category === 'Categoria'
-                          ? ''
-                          : { ...register('hola') })}
-                        readOnly
-                        className="outline-none cursor-pointer bg-transparent text-[#7D7D7D]"
-                        type="text"
-                        value={category}
-                      />
-                      <Image
-                        onClick={() => setIsActive(!isActive)}
-                        className={`${isActive ? 'rotate-[180deg]' : ''}
-                        absolute right-[25px] cursor-pointer duration-[0.1s]`}
-                        src={'svg/arrowDown.svg'}
-                        width={20}
-                        height={15}
-                        alt=""
-                      />
-                    </div>
-                    <div
-                      className={`${
-                        isActive ? '' : 'hidden'
-                      }  flex flex-col gap-[10px] duration-[0.5s] text-[#A7A6A7] `}
+                      {...register('publication_type_id')}
                     >
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Ropa y accesorios"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Deportes"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Conciertos"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Meet & Greet"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="E-sport"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Pop / Rock"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Tecnología"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Hogar / Decoración"
-                      />
-                      <InputCategory
-                        setIsActive={setIsActive}
-                        setCategory={setCategory}
-                        text="Abastecimiento"
-                      />
-                    </div>
+                      {categories?.map((category) => (
+                        <option key={category.id} value={category.id}>
+                          {category.name}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div className="relative">
@@ -269,7 +155,7 @@ export default function NewPost() {
                     ¿Por qué lo recomiendas?
                   </label>
                   <textarea
-                    {...register('response')}
+                    {...register('description')}
                     className="w-full h-[115px] max-w-[620px] border-[1px] border-[#7D7D7D] rounded-[10px] bg-transparent text-black p-[15px]"
                     id="question"
                   />
@@ -282,7 +168,7 @@ export default function NewPost() {
                     Link de referencia
                   </label>
                   <input
-                    {...register('link')}
+                    {...register('urlShare')}
                     className="w-full max-w-[620px] h-[50px] border-[1px] border-[#7D7D7D] rounded-[10px] bg-transparent text-black p-[15px]"
                     type="text"
                     id="link"

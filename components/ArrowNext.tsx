@@ -8,7 +8,7 @@ const ArrowNext = () => {
         src="/svg/arrowNext.svg"
         width={50}
         height={50}
-        alt="Arrow to right icon"
+        alt="Imagen de circulo con una flecha adentro"
       />
     </button>
   );

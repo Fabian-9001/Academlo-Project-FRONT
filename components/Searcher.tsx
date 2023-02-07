@@ -1,19 +1,18 @@
 import Image from 'next/image';
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 
 const Searcher = ({ style }: { style?: boolean }) => {
   const { handleSubmit, register, reset } = useForm();
-  let submit = (data: any) => {
+  let submit = (data: FieldValues) => {
     console.log(data);
     reset({ request: '' });
   };
-
   return (
     <form
       onSubmit={handleSubmit(submit)}
       className={`${
         style ? 'border-[1px] border-[#A7A6A7]' : ''
-      } w-full max-w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between `}
+      } w-full max-w-[465px] h-[45px] rounded-[25px] bg-white font-[400] flex justify-between  `}
     >
       <input
         {...register('request')}
@@ -27,7 +26,7 @@ const Searcher = ({ style }: { style?: boolean }) => {
           src="/svg/searcher.svg"
           width={18}
           height={18}
-          alt="Magnifying glass icon"
+          alt="Icono de lupa"
         />
       </button>
     </form>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StoreAndBrands = ({ text, style }: { text: string; style?: boolean }) => {
+const CategoryButton = ({ text, style }: { text: string; style?: boolean }) => {
   return (
     <button
       className={`${
@@ -18,4 +18,4 @@ const StoreAndBrands = ({ text, style }: { text: string; style?: boolean }) => {
   );
 };
 
-export default StoreAndBrands;
+export default CategoryButton;

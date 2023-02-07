@@ -8,7 +8,7 @@ const LikeEnable = () => {
         src="/svg/likeEnable.svg"
         width={50}
         height={50}
-        alt="Heart icon with background pink"
+        alt="Icono de circulo con corazón"
       />
     </button>
   );

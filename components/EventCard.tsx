@@ -1,27 +1,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
 import LikeDisable from './LikeDisable';
 import LikeEnable from './LikeEnable';
 import Person from './Person';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { Publication } from '../lib/interfaces/publications.interface';
 
-const EventCard = () => {
+const EventCard = ({ publication }: { publication: Publication }) => {
   const [isEnable, setIsEnable] = useState(false);
-
   const router = useRouter();
-
   const navigate = () => {
-    router.push('/event/id');
+    router.push(`/event/${publication.id}`);
   };
-
   return (
-    <div className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden mx-[5px]">
-      <header className="w-full h-[240px]  relative">
+    <div className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden sm-[5px] xs:mx-auto">
+      <header className="w-full h-[240px]  relative  overflow-hidden">
         <Image
+          className="hover:scale-[1.1] duration-[0.3s]"
           src={'/images/ExampleImg.png'}
           fill={true}
-          alt="Image of the event"
+          alt={`Imagen de evento ${publication?.title}}`}
           quality={100}
         />
       </header>
@@ -39,33 +38,32 @@ const EventCard = () => {
           </div>
         )}
       </div>
-      <div className="w-full h-[215px]">
-        <h3
-          onClick={navigate}
-          className="font-roboto font-title-3 text-title-3 leading-title-3 text-primary-blackLight mt-[15px] ml-[23px] cursor-pointer"
-        >
-          Concierto de Lady Gaga
-        </h3>
-
-        <p className="font-roboto font-texto-1 text-texto-1 leading-texto-1 text-primary-grayDark ml-[23px] mr-[21px] mt-[5px] mb-[15px]">
-          El concierto con la temática de Lady gaga en Las Vegas. El concierto
-          con la temática de Lady gaga en Las Vegas.El concierto con la
-          temática.
+      <div className="w-full h-[215px] font-roboto">
+        <header>
+          <h3
+            onClick={navigate}
+            className="font-[600] text-[20px] leading-[23px] text-primary-blackLight mt-[15px] ml-[23px] cursor-pointer"
+          >
+            {publication?.title}
+          </h3>
+        </header>
+        <p className="min-h-[70px] max-h-[70px] overflow-y-auto font-[400] text-[15px] leading-[17px] text-[#6E6A6C] ml-[23px] mr-[21px] mt-[5px] mb-[15px] scroll">
+          {publication?.description}
         </p>
-
-        <Link
-          className="font-roboto font-texto-2 text-texto-2 leading-texto-2 text-primary-blue ml-[27px]"
-          href="#"
-        >
-          ladygaga.com
-        </Link>
-
-        <div className="flex items-center gap-[10px] mt-[12px] ml-[30px]">
-          <Person />
-          <p className="font-roboto font-texto-2 text-texto-2 leading-texto-2 text-primary-blackLight mt-[5px]">
-            90,800,756 votos
-          </p>
-        </div>
+        <footer>
+          <Link
+            className="font-[500] text-[14px] leading-[16px] text-[#1B4DB1] ml-[27px]"
+            href="#"
+          >
+            ladygaga.com
+          </Link>
+          <div className="flex items-center gap-[10px] mt-[12px] ml-[30px]">
+            <Person />
+            <p className="font-[500] text-[14px] leading-[16px] text-primary-blackLight ">
+              90,800,756 votos
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
   );

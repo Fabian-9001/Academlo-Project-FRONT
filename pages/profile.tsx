@@ -1,57 +1,79 @@
 import EventCard from '../components/EventCard';
 import Image from 'next/image';
-import NavProfile from '../components/NavProfile';
+import NavBar from '../components/NavBar';
+import { useState } from 'react';
 
 export default function Profile() {
+  const [isPublications, setIsPublications] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   return (
     <div className="bg-white">
-      <NavProfile />
+      <NavBar />
       <div>
-        <div className="grid relative max-w-[1280px] h-[129px] bg-[#1B4DB1] w-full font-roboto mx-auto grid-cols-1">
-          <div className="absolute top-[50%] left-[50%] translate-x-[-50%]">
-            <Image
-              src="/images/imgProfile.png"
-              width={117}
-              height={117}
-              alt="Person icon"
-              className="pt-1 ml-2"
-            />
+        <div className="grid relative  h-[129px] bg-[#1B4DB1] w-full font-roboto mx-auto grid-cols-1">
+          <div className="max-w-[1280px] mx-auto flex justify-center relative">
+            <div className="w-[117px] h-[117px] flex items-center justify-center rounded-[50%] mt-[65px] border cursor-pointer duration-[0.3s] hover:brightness-[0.5] relative">
+              <Image
+                src="/images/imgProfile.png"
+                fill={true}
+                alt="Person icon"
+              />
+              <input
+                className="absolute ml-[7px] top-0  h-[100%] rounded-[50%] opacity-0"
+                type="file"
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-20 w-full max-w-[1280px] gap-3 text-[#A7A6A7] text-[13px] font-normal mx-auto ">
-        <p className="bg-white px-5 py-1   border-solid border-[#A7A6A7] border-[1px] cursor-pointer rounded-[23px]">
+      <div className="flex justify-center mt-20  gap-[20px] w-full max-w-[1280px]  text-[#A7A6A7] text-[13px] font-normal mx-auto ">
+        <button
+          onClick={() => setIsPublications(false)}
+          className="bg-white px-5 py-1   border-solid border-[#A7A6A7] border-[1px] cursor-pointer rounded-[23px]"
+        >
           Mis votos
-        </p>
-        <p className="bg-white px-5 py-1   border-solid border-[#A7A6A7] border-[1px] cursor-pointer rounded-[23px]">
+        </button>
+        <button
+          onClick={() => setIsPublications(true)}
+          className="bg-white px-5 py-1   border-solid border-[#A7A6A7] border-[1px] cursor-pointer rounded-[23px]"
+        >
           Mis publicaciones
-        </p>
+        </button>
       </div>
-      <div className="grid mx-auto max-w-[964px] mt-16 grid-cols-1 gap-y-11 sm:grid-cols-1 md:grid-cols-3  ">
-        <div className="flex justify-center ml-4 mr-4">
-          <EventCard />
-        </div>
-        <div className="flex justify-center ml-4 mr-4">
-          <EventCard />
-        </div>
-        <div className="flex justify-center ml-4 mr-4">
-          <EventCard />
-        </div>
-        <div className="flex justify-center ml-4 mr-4">
-          <EventCard />
-        </div>
-        <div className="flex justify-center ml-4 mr-4">
-          <EventCard />
-        </div>
+      <div
+        className={`mx-auto max-w-[980px] mt-[75px]  overflow-hidden
+      ${isActive ? 'h-auto' : 'max-h-[990px]'} `}
+      >
+        {isPublications ? (
+          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
+            <EventCard />
+            <EventCard />
+            <EventCard />
+          </div>
+        ) : (
+          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
+            <EventCard />
+            <EventCard />
+            <EventCard />
+            <EventCard />
+            <EventCard />
+            <EventCard />
+            <EventCard />
+            <EventCard />
+          </div>
+        )}
       </div>
-      <div className="flex justify-center mt-20">
-        <button className="w-[125px] h-[45px] rounded-[30px] p-[20px] bg-[#1B4DB1] flex items-center justify-center">
+      <div className="flex justify-center mt-[80px] mb-[65px]">
+        <button
+          onClick={() => setIsActive(!isActive)}
+          className="w-[125px] h-[45px] rounded-[30px] p-[20px] bg-[#1B4DB1] flex items-center justify-center"
+        >
           <p className="font-roboto font-[600] text-[16px] leading-[20px] text-white">
-            Ver mas
+            {isActive ? 'Ver menos' : 'Ver mas'}
           </p>
         </button>
       </div>
-      <div className="container mt-20 mx-auto h-[182px] w-full  max-w-[1280px]  bg-[url('/images/mobile/footerProfile.png')] bg-no-repeat bg-cover sm:bg-[url('/images/footerImg.png')] bg-center"></div>
+      <div className="h-[185px] w-full bg-[url('/images/mobile/footerProfile.png')] bg-no-repeat bg-cover sm:bg-[url('/images/footerImg.png')] bg-center"></div>
     </div>
   );
 }
