@@ -4,7 +4,7 @@ import ProfileConfig from './ProfileConfig';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../redux/index';
+import { RootState } from '../store/index';
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState(false);
