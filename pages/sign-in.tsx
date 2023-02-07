@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { login } from '../lib/services/auth.services';
-import { setUserState } from '../redux/slices/user.slice';
+import { setUserState } from '../store/slices/user.slice';
 
 export default function SignIn() {
   const { handleSubmit, register } = useForm();

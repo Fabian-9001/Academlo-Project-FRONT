@@ -17,15 +17,15 @@ export default function Details() {
   const [publication, setPublication] = useState();
   const router = useRouter();
 
-  const id: string = router.query.id;
-  useEffect(() => {
+  //const id: string = router.query.id;
+  /*useEffect(() => {
     getPublication(id)
       .then((res) => {
         setPublication(res.data.results);
         console.log(res.data.results);
       })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, [id]);*/
   //
   return (
     <div className="bg-white min-h-[100vh]">
@@ -64,13 +64,13 @@ export default function Details() {
         <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[980px] sm:mx-auto sm:grid-cols-2 sm:pt-[100px]">
           <header className="font-roboto p-[20px] sm:max-h-[315px]">
             <p className="font-[500] text-[16px] leading-[19px] text-primary-black pb-[5px]">
-              {publication?.publication_type.name} / {publication?.tags[0].name}
+              {/*} {publication?.publication_type.name} / {publication?.tags[0].name}{*/}
             </p>
             <h3 className="font-[900] text-[36px] leading-[42px] text-primary-black pb-[20px] md:pb-[25px] md:text-[48px] md:w-[90%]">
-              {publication?.title}
+              {/*}{publication?.title}{*/}
             </h3>
             <p className="font-[400] text-[15px] leading-[17px] text-primary-grayDark pb-[30px] md:pb-[45px] md:w-[82%] sm:pr-[20px]">
-              {publication?.description}
+              {/*}  {publication?.description}{*/}
             </p>
             <Link
               className="font-[500] text-[14px] leading-[16px] text-primary-blue"

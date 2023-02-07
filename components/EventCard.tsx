@@ -7,12 +7,12 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Publication } from '../lib/interfaces/publications.interface';
 
-const EventCard = ({ publication }: { publication: Publication }) => {
+const EventCard = ({ publication }: { publication?: Publication }) => {
   const [isEnable, setIsEnable] = useState(false);
   const router = useRouter();
-  const navigate = () => {
+  /*const navigate = () => {
     router.push(`/event/${publication.id}`);
-  };
+  };*/
   return (
     <div className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden sm-[5px] xs:mx-auto">
       <header className="w-full h-[240px]  relative  overflow-hidden">
@@ -41,14 +41,14 @@ const EventCard = ({ publication }: { publication: Publication }) => {
       <div className="w-full h-[215px] font-roboto">
         <header>
           <h3
-            onClick={navigate}
+           // onClick={navigate}
             className="font-[600] text-[20px] leading-[23px] text-primary-blackLight mt-[15px] ml-[23px] cursor-pointer"
           >
-            {publication?.title}
+          {/*}  {publication?.title}{*/}
           </h3>
         </header>
         <p className="min-h-[70px] max-h-[70px] overflow-y-auto font-[400] text-[15px] leading-[17px] text-[#6E6A6C] ml-[23px] mr-[21px] mt-[5px] mb-[15px] scroll">
-          {publication?.description}
+        {/*}  {publication?.description}{*/}
         </p>
         <footer>
           <Link
