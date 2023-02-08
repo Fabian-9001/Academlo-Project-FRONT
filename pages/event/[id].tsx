@@ -1,32 +1,38 @@
-import Link from 'next/link';
-import Person from '../../components/Person';
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from '../../components/Button';
-import SuggestedList from '../../components/SuggestedList';
-import SliderCards from '../../components/SliderCards';
+import CategoryButton from '../../components/CategoryButton';
 import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';
+import Person from '../../components/Person';
 import Searcher from '../../components/Searcher';
-import CategoryButton from '../../components/CategoryButton';
-import { getPublication } from '../../lib/services/publications.services';
+import SliderCards from '../../components/SliderCards';
+import SuggestedList from '../../components/SuggestedList';
+import {
+  usePublication,
+  usePublications,
+} from '../../lib/services/publications.services';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 export default function Details() {
-  const [isActive, setIsActive] = useState(false);
-  const [publication, setPublication] = useState();
   const router = useRouter();
+  const [mainPublication, setMainPublication] = useState<any>();
 
-  //const id: string = router.query.id;
-  /*useEffect(() => {
-    getPublication(id)
-      .then((res) => {
-        setPublication(res.data.results);
-        console.log(res.data.results);
-      })
-      .catch((err) => console.log(err));
-  }, [id]);*/
-  //
+  const id: any = router.query.id;
+  const { data } = usePublication(id);
+
+  const { data: dataSlider } = usePublications();
+  let publications = dataSlider?.results.results?.filter(
+    (element) => element.tags[0].name === 'Ropa y accesorios'
+  );
+
+  useEffect(() => {
+    if (data?.results) {
+      setMainPublication(data?.results);
+    }
+  }, [id]);
+
   return (
     <div className="bg-white min-h-[100vh]">
       <NavBar />
@@ -64,19 +70,20 @@ export default function Details() {
         <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[980px] sm:mx-auto sm:grid-cols-2 sm:pt-[100px]">
           <header className="font-roboto p-[20px] sm:max-h-[315px]">
             <p className="font-[500] text-[16px] leading-[19px] text-primary-black pb-[5px]">
-              {/*} {publication?.publication_type.name} / {publication?.tags[0].name}{*/}
+              {mainPublication?.publication_type.name} /{' '}
+              {mainPublication?.tags[0].name}
             </p>
             <h3 className="font-[900] text-[36px] leading-[42px] text-primary-black pb-[20px] md:pb-[25px] md:text-[48px] md:w-[90%]">
-              {/*}{publication?.title}{*/}
+              {mainPublication?.title}
             </h3>
             <p className="font-[400] text-[15px] leading-[17px] text-primary-grayDark pb-[30px] md:pb-[45px] md:w-[82%] sm:pr-[20px]">
-              {/*}  {publication?.description}{*/}
+              {mainPublication?.description}
             </p>
             <Link
               className="font-[500] text-[14px] leading-[16px] text-primary-blue"
               href={''}
             >
-              ladygaga.com
+              {mainPublication?.content}
             </Link>
             <div className="flex items-center gap-[10px] pt-[15px] ">
               <Person />
@@ -104,7 +111,7 @@ export default function Details() {
               Las personas últimanete están hablando de esto
             </p>
           </div>
-          <SliderCards />
+          <SliderCards publications={publications} />
         </div>
       </div>
       <Footer />

@@ -8,6 +8,15 @@
   width: 0px;
 }
 
+.scroll2::-webkit-scrollbar {
+  width: 0;
+}
+
+.scroll2::-webkit-scrollbar-thumb {
+  background-color: rgb(224, 224, 224);
+  border-radius: 10px;
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;

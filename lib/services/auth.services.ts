@@ -1,18 +1,25 @@
-import axios from 'axios';
-import { Login, SignUp } from '../interfaces/auth.interface';
+import {
+  ChangePassword,
+  Login,
+  RecoverPassword,
+  Sign_Up,
+} from '../interfaces/auth.interface';
+import instance from '../helpers/axios.helpers';
 
 function login(data: Login) {
-  return axios.post(
-    'https://paracuando-team1.academlo.tech/api/v1/auth/login',
-    data
-  );
+  return instance.post('/auth/login', data);
 }
 
-function signUp(data: SignUp) {
-  return axios.post(
-    'https://paracuando-team1.academlo.tech/api/v1/auth/sign-up',
-    data
-  );
+function signUp(data: Sign_Up) {
+  return instance.post('/auth/sign-up', data);
 }
 
-export { login, signUp };
+function recoveryPassword(email: RecoverPassword) {
+  return instance.post('/auth/forget-password', email);
+}
+
+function changePassword(data: ChangePassword) {
+  return instance.post(`/auth/change-password/${data.token}`, data.password);
+}
+
+export { login, signUp, recoveryPassword, changePassword };

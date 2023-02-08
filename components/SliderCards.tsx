@@ -1,27 +1,18 @@
 import ArrowNext from './ArrowNext';
 import EventCard from './EventCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Publication } from '../lib/interfaces/publications.interface';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Publication } from '../lib/interfaces/publications.interface';
 
 const SliderCards = ({ publications }: { publications?: Publication[] }) => {
   return (
-    <div className="w-full h-[100%] max-w-[1024px] m-auto flex items-center justify-center gap-[25px]">
-      <div className="hidden lg:inline-block swiper-prev-slide scale-x-[-1] min-w-[50px]">
-        <ArrowNext />
-      </div>
-      <div className=" flex items-center justify-center gap-[20px] w-full">
+    <div className="w-full h-[100%] max-w-[1024px] m-auto">
+      <div className="relative">
         <Swiper
-          className="h-[460px] "
-          modules={[Navigation]}
+          className="h-[460px]"
           grabCursor={true}
-          navigation={{
-            nextEl: '.swiper-next-slide',
-            prevEl: '.swiper-prev-slide',
-            disabledClass: 'opacity-none',
-          }}
+          slidesPerView={'auto'}
           breakpoints={{
             375: {
               slidesPerView: 1,
@@ -68,19 +59,41 @@ const SliderCards = ({ publications }: { publications?: Publication[] }) => {
               spaceBetween: 20,
             },
           }}
+          style={{ position: 'unset' }}
         >
+          <div className="hidden sm:flex items-center absolute top-0 bottom-0 -left-20 cursor-pointer scale-x-[-1]">
+            <ButtonPrev />
+          </div>
           {publications?.map((publication) => (
             <SwiperSlide key={publication.id}>
               <EventCard publication={publication} />
             </SwiperSlide>
           ))}
+          <div className="hidden sm:flex items-center absolute top-0 bottom-0 -right-20 cursor-pointer">
+            <ButtonNext />
+          </div>
         </Swiper>
-      </div>
-      <div className="hidden lg:inline-block swiper-next-slide min-w-[50px]">
-        <ArrowNext />
       </div>
     </div>
   );
 };
 
 export default SliderCards;
+
+const ButtonNext = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="" onClick={() => swiper.slideNext()}>
+      <ArrowNext />
+    </div>
+  );
+};
+
+const ButtonPrev = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="" onClick={() => swiper.slidePrev()}>
+      <ArrowNext />
+    </div>
+  );
+};

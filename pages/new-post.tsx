@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTags } from '../lib/services/tags.services';
 import { useCategories } from '../lib/services/categories.services';
@@ -8,10 +8,19 @@ import { createPublication } from '../lib/services/publications.services';
 
 export default function NewPost() {
   const [step, setStep] = useState(1);
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, watch } = useForm();
   const { data: tags } = useTags();
   const { data: categories } = useCategories();
   const router = useRouter();
+
+  const imageFile = watch('firstFile');
+  const [imageUrl, setImageUrl] = useState<any>();
+
+  useEffect(() => {
+    if (imageFile) {
+      setImageUrl(URL.createObjectURL(imageFile[0]));
+    }
+  }, [imageFile]);
 
   let nextStep = (data: any) => {
     if (step === 1) {
@@ -177,8 +186,12 @@ export default function NewPost() {
               </div>
             ) : (
               <div className="flex flex-wrap gap-[20px] border-[1px] border-primary-grayDark rounded-[10px] p-[25px] mb-[80px] justify-center sm:flex-nowrap">
-                <div className="w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')] bg-no-repeat bg-center">
+                <div
+                  style={{ backgroundImage: `url(${imageUrl})` }}
+                  className="w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')] bg-no-repeat bg-center"
+                >
                   <input
+                    id="test"
                     {...register('firstFile')}
                     className="w-[180px] h-[205px] opacity-0"
                     type="file"
@@ -194,7 +207,7 @@ export default function NewPost() {
                 <div className="w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')] bg-no-repeat bg-center">
                   <input
                     {...register('thirdFile')}
-                    className="w-[180px] h-[205px] opacity-0"
+                    className="w-[180px] h-[205px] opacity-0 bg-[url()]"
                     type="file"
                   />
                 </div>

@@ -6,11 +6,12 @@ import React from 'react';
 const ProfileConfig = ({ isActive }: { isActive: boolean }) => {
   const closeSession = () => {
     Cookies.remove('token');
+    Cookies.remove('email');
     window.location.href = '/';
   };
   return (
     <div
-      className={`w-[250px] h-[220px] rounded-[25px] bg-white shadow-[-5px_8px_31px_-8px_rgba(0,0,0,0.25)] p-[30px] absolute top-[46px] sm:right-[-7%] duration-[0.3s] z-10 ${
+      className={`w-[250px] h-[220px] rounded-[25px] bg-white shadow-[-5px_8px_31px_-8px_rgba(0,0,0,0.25)] p-[30px] absolute top-[46px] right-[-10vw] sm:right-[-1vw] duration-[0.3s] z-10 ${
         isActive ? '' : 'hidden'
       }`}
     >

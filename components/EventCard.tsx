@@ -10,15 +10,17 @@ import { Publication } from '../lib/interfaces/publications.interface';
 const EventCard = ({ publication }: { publication?: Publication }) => {
   const [isEnable, setIsEnable] = useState(false);
   const router = useRouter();
-  /*const navigate = () => {
-    router.push(`/event/${publication.id}`);
-  };*/
+  const navigate = () => {
+    router.push(`/event/${publication?.id}`);
+  };
   return (
     <div className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden sm-[5px] xs:mx-auto">
-      <header className="w-full h-[240px]  relative  overflow-hidden">
+      <header className="w-full h-[240px] relative overflow-hidden">
         <Image
           className="hover:scale-[1.1] duration-[0.3s]"
-          src={'/images/ExampleImg.png'}
+          src={
+            publication?.picture ? publication?.picture : '/images/Frame-2.png'
+          }
           fill={true}
           alt={`Imagen de evento ${publication?.title}}`}
           quality={100}
@@ -41,21 +43,22 @@ const EventCard = ({ publication }: { publication?: Publication }) => {
       <div className="w-full h-[215px] font-roboto">
         <header>
           <h3
-           // onClick={navigate}
+            onClick={navigate}
             className="font-[600] text-[20px] leading-[23px] text-primary-blackLight mt-[15px] ml-[23px] cursor-pointer"
           >
-          {/*}  {publication?.title}{*/}
+            {publication?.title}
           </h3>
         </header>
         <p className="min-h-[70px] max-h-[70px] overflow-y-auto font-[400] text-[15px] leading-[17px] text-[#6E6A6C] ml-[23px] mr-[21px] mt-[5px] mb-[15px] scroll">
-        {/*}  {publication?.description}{*/}
+          {publication?.description}
         </p>
         <footer>
           <Link
             className="font-[500] text-[14px] leading-[16px] text-[#1B4DB1] ml-[27px]"
-            href="#"
+            href="https://www.academlo.com"
+            target="_blank"
           >
-            ladygaga.com
+            {publication?.content}
           </Link>
           <div className="flex items-center gap-[10px] mt-[12px] ml-[30px]">
             <Person />

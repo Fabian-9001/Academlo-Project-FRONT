@@ -8,7 +8,7 @@ import {
 
 function usePublications() {
   const { data, error, isLoading, mutate } = useSWR<PublicationsResponse>(
-    'https://paracuando-team1.academlo.tech/api/v1/publications',
+    '/publications',
     fetcher
   );
   return {
@@ -19,8 +19,17 @@ function usePublications() {
   };
 }
 
-function getPublication(id: string) {
-  return instance.get(`/publications/${id}`);
+function usePublication(id: string) {
+  const { data, error, isLoading, mutate } = useSWR<PublicationsResponse>(
+    `/publications/${id}`,
+    fetcher
+  );
+  return {
+    data,
+    error,
+    isLoading,
+    mutate,
+  };
 }
 
 function createPublication(data: Publication) {
@@ -42,7 +51,8 @@ function votePublication(id: string) {
 export {
   usePublications,
   createPublication,
-  getPublication,
+  usePublication,
   updatePublication,
   deletePublication,
+  votePublication,
 };

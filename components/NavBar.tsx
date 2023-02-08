@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ProfileConfig from './ProfileConfig';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/index';
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState(false);
   const router = useRouter();
-  const user = useSelector((state: RootState) => state.user.isAuthenticated);
+  const user = Cookies.get('token');
+  const userEmail = Cookies.get('email');
   return (
     <nav className="w-full h-[71px] bg-black p-[25px]">
       <div className=" justify-between font-roboto font-[500] mx-auto flex max-w-[1280px]">
@@ -25,7 +25,7 @@ const NavBar = () => {
         </header>
         <div className="flex items-center relative">
           {user ? (
-            <div className="flex gap-[40px] items-center">
+            <div className="flex gap-[20px] md:gap-[40px] items-center">
               <Link href="/new-post" className="flex gap-[10px]">
                 <Image
                   width={16}
@@ -47,7 +47,7 @@ const NavBar = () => {
                 />
                 <p className="text-[11px] font-[400] font-roboto">Mis votos</p>
               </Link>
-              <div className="flex items-center gap-[25px] ">
+              <div className="flex items-center gap-[25px]">
                 <Link
                   href={'/profile'}
                   className="flex items-center gap-[10px]"
@@ -58,8 +58,8 @@ const NavBar = () => {
                     src={'/svg/userLogged.svg'}
                     alt="Imagen de circulo con silueta de persona adentro"
                   />
-                  <p className="font-roboto font-[400] text-[11px] mt-[1px]">
-                    erik.perez@gmail.com
+                  <p className="hidden sm:inline-block font-roboto font-[400] text-[11px] mt-[1px]">
+                    {userEmail}
                   </p>
                 </Link>
                 <Image
@@ -77,13 +77,13 @@ const NavBar = () => {
             <div className="flex items-center">
               <Link
                 className="text-white  hover:text-[#ff64bc] duration-[0.3s] text-[11px] mr-[20px]"
-                href={'/sign-in'}
+                href={'/auth/sign-in'}
               >
                 Log In
               </Link>
               <Link
                 className="text-white  hover:text-[#ff64bc] duration-[0.3s] text-[11px]"
-                href={'/sign-up'}
+                href={'/auth/sign-up'}
               >
                 Sign Up
               </Link>
