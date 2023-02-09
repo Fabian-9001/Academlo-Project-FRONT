@@ -39,7 +39,7 @@ const SliderCards = ({ publications }: { publications?: Publication[] }) => {
               spaceBetween: 20,
             },
             500: {
-              slidesPerView: 1.5,
+              slidesPerView: 2,
               spaceBetween: 20,
             },
             550: {

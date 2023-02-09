@@ -12,6 +12,7 @@ export default function Home() {
   const clothes = fullData?.filter(
     (element) => element.tags[0].name === 'Ropa y accesorios'
   );
+
   return (
     <div>
       <Head>

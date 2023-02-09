@@ -2,10 +2,19 @@ import EventCard from '../components/EventCard';
 import Image from 'next/image';
 import NavBar from '../components/NavBar';
 import { useState } from 'react';
+import { useVotes } from '../lib/services/votes.services';
+import { useUser } from '../lib/services/user.services';
+import { useMyPublications } from '../lib/services/publications.services';
 
 export default function Profile() {
   const [isPublications, setIsPublications] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const { data } = useUser();
+  const { data: votes } = useVotes(`${data ? data?.results.id : ''}`);
+  const { data: publications } = useMyPublications(
+    `${data ? data?.results.id : ''}`
+  );
+
   return (
     <div className="bg-white">
       <NavBar />
@@ -44,22 +53,20 @@ export default function Profile() {
         className={`mx-auto max-w-[980px] mt-[75px]  overflow-hidden
       ${isActive ? 'h-auto' : 'max-h-[990px]'} `}
       >
-        {isPublications ? (
+        {isPublications === false ? (
           <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
-            <EventCard />
-            <EventCard />
-            <EventCard />
+            {votes?.map((publication) => (
+              <EventCard
+                key={publication.publication_id}
+                publication={publication.Publication}
+              />
+            ))}
           </div>
         ) : (
           <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
+            {publications?.map((publication) => (
+              <EventCard key={publication.id} publication={publication} />
+            ))}
           </div>
         )}
       </div>

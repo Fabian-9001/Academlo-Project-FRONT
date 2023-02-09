@@ -6,12 +6,22 @@ import Person from './Person';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Publication } from '../lib/interfaces/publications.interface';
+import { votePublication } from '../lib/services/votes.services';
 
-const EventCard = ({ publication }: { publication?: Publication }) => {
-  const [isEnable, setIsEnable] = useState(false);
+const EventCard = ({ publication }: { publication?: any }) => {
+  const [isVoted, setIsVoted] = useState(false);
   const router = useRouter();
   const navigate = () => {
     router.push(`/event/${publication?.id}`);
+  };
+
+  const vote = () => {
+    publication &&
+      votePublication(publication.id)
+        .then(() => {
+          setIsVoted(!isVoted);
+        })
+        .catch((err) => console.log(err));
   };
   return (
     <div className="xs:w-[300px] h-[455px] rounded-[20px] bg-white drop-shadow-shadow overflow-hidden sm-[5px] xs:mx-auto">
@@ -26,11 +36,8 @@ const EventCard = ({ publication }: { publication?: Publication }) => {
           quality={100}
         />
       </header>
-      <div
-        onClick={() => setIsEnable(!isEnable)}
-        className="absolute top-[205px] right-[7%]"
-      >
-        {isEnable ? (
+      <div onClick={vote} className="absolute top-[205px] right-[7%]">
+        {isVoted ? (
           <div className="hover:scale-[0.90] duration-[0.3s]">
             <LikeEnable />
           </div>
@@ -63,7 +70,7 @@ const EventCard = ({ publication }: { publication?: Publication }) => {
           <div className="flex items-center gap-[10px] mt-[12px] ml-[30px]">
             <Person />
             <p className="font-[500] text-[14px] leading-[16px] text-primary-blackLight ">
-              90,800,756 votos
+              {publication?.votes_count} votos
             </p>
           </div>
         </footer>

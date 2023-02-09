@@ -187,8 +187,12 @@ export default function NewPost() {
             ) : (
               <div className="flex flex-wrap gap-[20px] border-[1px] border-primary-grayDark rounded-[10px] p-[25px] mb-[80px] justify-center sm:flex-nowrap">
                 <div
-                  style={{ backgroundImage: `url(${imageUrl})` }}
-                  className="w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')] bg-no-repeat bg-center"
+                  style={{
+                    backgroundImage: `${
+                      imageUrl ? `url(${imageUrl})` : 'url(/svg/addFile.svg)'
+                    } `,
+                  }}
+                  className={`w-[170px] h-[205px] bg-primary-grayLight bg-cover  bg-no-repeat bg-center`}
                 >
                   <input
                     id="test"

@@ -11,27 +11,32 @@ import SuggestedList from '../../components/SuggestedList';
 import {
   usePublication,
   usePublications,
+  votePublication,
 } from '../../lib/services/publications.services';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Details() {
   const router = useRouter();
-  const [mainPublication, setMainPublication] = useState<any>();
+  const [isVoted, setIsVoted] = useState(false);
 
   const id: any = router.query.id;
   const { data } = usePublication(id);
 
   const { data: dataSlider } = usePublications();
   let publications = dataSlider?.results.results?.filter(
-    (element) => element.tags[0].name === 'Ropa y accesorios'
+    (element) => element.tags[0].name === data?.tags[0].name
   );
 
-  useEffect(() => {
-    if (data?.results) {
-      setMainPublication(data?.results);
-    }
-  }, [id]);
+  const vote = () => {
+    data &&
+      votePublication(data.id)
+        .then(() => {
+          setIsVoted(!isVoted);
+          window.location.href = `/event/${data.id}`;
+        })
+        .catch((err) => console.log(err));
+  };
 
   return (
     <div className="bg-white min-h-[100vh]">
@@ -70,33 +75,39 @@ export default function Details() {
         <div className="grid grid-cols-1 pt-[60px] pb-[80px] max-w-[980px] sm:mx-auto sm:grid-cols-2 sm:pt-[100px]">
           <header className="font-roboto p-[20px] sm:max-h-[315px]">
             <p className="font-[500] text-[16px] leading-[19px] text-primary-black pb-[5px]">
-              {mainPublication?.publication_type.name} /{' '}
-              {mainPublication?.tags[0].name}
+              {data?.publication_type.name} / {data?.tags[0].name}
             </p>
             <h3 className="font-[900] text-[36px] leading-[42px] text-primary-black pb-[20px] md:pb-[25px] md:text-[48px] md:w-[90%]">
-              {mainPublication?.title}
+              {data?.title}
             </h3>
             <p className="font-[400] text-[15px] leading-[17px] text-primary-grayDark pb-[30px] md:pb-[45px] md:w-[82%] sm:pr-[20px]">
-              {mainPublication?.description}
+              {data?.description}
             </p>
             <Link
               className="font-[500] text-[14px] leading-[16px] text-primary-blue"
               href={''}
             >
-              {mainPublication?.content}
+              {data?.content}
             </Link>
             <div className="flex items-center gap-[10px] pt-[15px] ">
               <Person />
               <p className="font-[500] text-[14px] leading-[16px] text-primary-blackLight">
-                90’800’756 votos
+                {data?.votes_count} votos
               </p>
             </div>
           </header>
-          <div className="min-w-[375px] mx-auto min-h-[250px] max-w-[540px] max-h-[380px] mb-[30px] p-[20px] relative row-span-2 sm:mb-[0] sm:w-full">
-            <Image src={'/images/ExampleImg2.png'} fill={true} alt="" />
+          <div className="min-w-[375px]  mx-auto min-h-[250px] max-w-[540px] max-h-[380px] mb-[30px] p-[20px] relative row-span-2 sm:mb-[0] sm:w-full">
+            <Image
+              src={data?.picture ? data?.picture : '/images/Frame-2.png'}
+              fill={true}
+              alt=""
+            />
           </div>
-          <footer className="w-full px-[10px] sm:pr-[20px] sm:px-[20px]">
-            <Button text="Votar" />
+          <footer
+            onClick={vote}
+            className="w-full px-[10px] sm:pr-[20px] sm:px-[20px]"
+          >
+            <Button text="votar" />
           </footer>
         </div>
         <div className="pb-[25px] md:pb-[80px]">
@@ -104,7 +115,7 @@ export default function Details() {
         </div>
         <div className="font-roboto flex flex-col gap-[35px] pb-[95px] pl-[20px] max-w-[980px] mx-auto lg:pl-[0] sm:pb-[115px]">
           <div className="flex flex-col gap-[10px]">
-            <h2 className=" font-[500] text-[24px] leading-[28px] text-primary-blackLight">
+            <h2 className="font-[500] text-[24px] leading-[28px] text-primary-blackLight">
               Recientes
             </h2>
             <p className="font-[400]] text-[16px] leading-[19px] text-primary-grayDark">

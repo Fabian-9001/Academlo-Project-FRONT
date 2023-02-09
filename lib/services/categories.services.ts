@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import { fetcher } from '../helpers/fetcher';
-import { CategoriesResponse } from '../interfaces/category.interface';
+import { CategoriesResponse } from '../interfaces/categories.interface';
 
 function useCategories() {
   const { data, error, isLoading, mutate } = useSWR<CategoriesResponse>(
