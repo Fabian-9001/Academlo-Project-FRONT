@@ -207,28 +207,28 @@ export default function NewPost() {
                 <div
                   style={{
                     backgroundImage: `${
-                      imageUrl ? `url(${imageUrl})` : 'url(/svg/addFile.svg)'
+                     /* imageUrl ? `url(${imageUrl})` :*/ 'url(/svg/addFile.svg)'
                     } `,
                   }}
-                  className={`w-[170px] h-[205px] bg-primary-grayLight bg-cover  bg-no-repeat bg-center`}
+                  className={`w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')]  bg-no-repeat bg-center`}
                 >
                   <input
                     id="test"
-                    {...register('firstFile')}
+                  //  {...register('firstFile')}
                     className="w-[180px] h-[205px] opacity-0"
                     type="file"
                   />
                 </div>
                 <div className="w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')] bg-no-repeat bg-center">
                   <input
-                    {...register('secondFile')}
+                //    {...register('secondFile')}
                     className="w-[180px] h-[205px] opacity-0"
                     type="file"
                   />
                 </div>
                 <div className="w-[170px] h-[205px] bg-primary-grayLight bg-[url('/svg/addFile.svg')] bg-no-repeat bg-center">
                   <input
-                    {...register('thirdFile')}
+                 //   {...register('thirdFile')}
                     className="w-[180px] h-[205px] opacity-0 bg-[url()]"
                     type="file"
                   />
