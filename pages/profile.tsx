@@ -54,7 +54,10 @@ export default function Profile() {
       ${isActive ? 'h-auto' : 'max-h-[990px]'} `}
       >
         {isPublications === false ? (
-          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
+          <div
+            id="#votes"
+            className="w-full flex flex-wrap lg:grid lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]"
+          >
             {votes?.map((publication) => (
               <EventCard
                 key={publication.publication_id}
@@ -63,7 +66,7 @@ export default function Profile() {
             ))}
           </div>
         ) : (
-          <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
+          <div className="w-full flex flex-wrap lg:grid lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
             {publications?.map((publication) => (
               <EventCard key={publication.id} publication={publication} />
             ))}

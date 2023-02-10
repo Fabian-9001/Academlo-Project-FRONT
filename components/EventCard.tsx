@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Publication } from '../lib/interfaces/publications.interface';
 import { votePublication } from '../lib/services/votes.services';
+import Swal from 'sweetalert2';
 
 const EventCard = ({ publication }: { publication?: any }) => {
   const [isVoted, setIsVoted] = useState(false);
@@ -20,6 +21,11 @@ const EventCard = ({ publication }: { publication?: any }) => {
       votePublication(publication.id)
         .then(() => {
           setIsVoted(!isVoted);
+          if (isVoted === true) {
+            Swal.fire('voto', 'Voto Registrado!', 'success');
+          } else {
+            Swal.fire('Voto Eliminado!');
+          }
         })
         .catch((err) => console.log(err));
   };

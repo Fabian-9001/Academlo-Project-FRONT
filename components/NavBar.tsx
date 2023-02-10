@@ -41,7 +41,7 @@ const NavBar = () => {
                 </p>
               </div>
               <div
-                onClick={() => router.push('profile')}
+                onClick={() => router.push('/profile')}
                 className="hidden sm:flex gap-[10px] cursor-pointer"
               >
                 <Image

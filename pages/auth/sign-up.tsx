@@ -3,12 +3,16 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { signUp } from '../../lib/services/auth.services';
 import { Sign_Up } from '../../lib/interfaces/auth.interface';
+import Swal from 'sweetalert2';
 
 export default function SignUp() {
   const { handleSubmit, register } = useForm<Sign_Up>();
   const submit = (data: Sign_Up) => {
     signUp(data)
-      .then(() => (window.location.href = '/profile'))
+      .then(() => {
+        window.location.href = '/profile';
+        Swal.fire('Registro', 'Usuario Creado!');
+      })
       .catch((err) => console.log(err));
   };
   return (

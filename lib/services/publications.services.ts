@@ -13,7 +13,7 @@ function usePublications() {
     fetcher
   );
   return {
-    data,
+    data: data?.results.results,
     error,
     isLoading,
     mutate,
@@ -46,7 +46,7 @@ function useMyPublications(id: string) {
   };
 }
 
-function createPublication(data: Publication) {
+function createPublication(data: any) {
   return instance.post('/publications', data);
 }
 

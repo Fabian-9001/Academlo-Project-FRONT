@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useTags } from '../lib/services/tags.services';
 import { useCategories } from '../lib/services/categories.services';
 import { createPublication } from '../lib/services/publications.services';
+import Swal from 'sweetalert2';
 
 export default function NewPost() {
   const [step, setStep] = useState(1);
@@ -14,6 +15,7 @@ export default function NewPost() {
   const router = useRouter();
 
   const imageFile = watch('firstFile');
+
   const [imageUrl, setImageUrl] = useState<any>();
 
   useEffect(() => {
@@ -28,10 +30,14 @@ export default function NewPost() {
     } else {
       createPublication(data)
         .then((res) => {
+          Swal.fire('New Post', 'Nueva Publicacion Creada', 'success');
           console.log(res.data);
           router.push('/profile');
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          Swal.fire('Error', 'Error al crear Publicacion', 'error');
+          console.log(err);
+        });
     }
   };
 
@@ -146,7 +152,7 @@ export default function NewPost() {
                     <select
                       className="w-full min-h-[50px] h-auto flex flex-col gap-[15px] border-[1px] border-[#7D7D7D] rounded-[10px] relative bg-white text-black py-[15px] px-[20px]
                      font-inter font-[400] text-[16px] leading-[24px] sm:w-[300px]"
-                      {...register('publication_type_id')}
+                      {...register('idPublicationType')}
                     >
                       {categories?.map((category) => (
                         <option key={category.id} value={category.id}>

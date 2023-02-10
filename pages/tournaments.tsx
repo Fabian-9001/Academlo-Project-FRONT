@@ -7,10 +7,10 @@ import { usePublications } from '../lib/services/publications.services';
 
 export default function Tournaments() {
   const { data } = usePublications();
-  let fullData = data?.results.results;
-  const clothes = fullData?.filter(
-    (element) => element.tags[0].name === 'Ropa y accesorios'
+  const publications = data?.filter(
+    (publication) => publication.publication_type.name === 'Torneos'
   );
+
   return (
     <div>
       <NavBar />
@@ -38,7 +38,7 @@ export default function Tournaments() {
               Lo que las personas piden más
             </p>
           </header>
-          <SliderCards publications={clothes} />
+          <SliderCards publications={publications} />
         </div>
         <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[980px] mx-auto lg:pl-[0] sm:pb-[40px]">
           <header className="flex flex-col gap-[10px]">
@@ -49,7 +49,7 @@ export default function Tournaments() {
               Publicaciones que podrías colaborar
             </p>
           </header>
-          <SliderCards publications={clothes} />
+          <SliderCards publications={publications} />
         </div>
         <SuggestedList />
         <div className="flex flex-col gap-[35px] pb-[95px] pl-[20px] max-w-[980px] mx-auto pt-[25px] lg:pl-[0] sm:pb-[115px] sm:pt-[35px]">
@@ -61,7 +61,7 @@ export default function Tournaments() {
               Las personas últimanete están hablando de esto
             </p>
           </header>
-          <SliderCards publications={clothes} />
+          <SliderCards publications={publications} />
         </div>
       </div>
       <Footer />

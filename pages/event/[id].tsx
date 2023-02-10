@@ -11,10 +11,10 @@ import SuggestedList from '../../components/SuggestedList';
 import {
   usePublication,
   usePublications,
-  votePublication,
 } from '../../lib/services/publications.services';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { votePublication } from '../../lib/services/votes.services';
 
 export default function Details() {
   const router = useRouter();
@@ -24,7 +24,7 @@ export default function Details() {
   const { data } = usePublication(id);
 
   const { data: dataSlider } = usePublications();
-  let publications = dataSlider?.results.results?.filter(
+  let publications = dataSlider?.filter(
     (element) => element.tags[0].name === data?.tags[0].name
   );
 
