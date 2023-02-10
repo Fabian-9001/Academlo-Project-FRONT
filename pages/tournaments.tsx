@@ -8,7 +8,7 @@ import { usePublications } from '../lib/services/publications.services';
 export default function Tournaments() {
   const { data } = usePublications();
   const publications = data?.filter(
-    (publication) => publication.publication_type.name === 'Torneos'
+    (publication) => publication.publication_type.name === 'Marcas y tiendas'
   );
 
   return (
