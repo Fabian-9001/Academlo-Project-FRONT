@@ -33,7 +33,7 @@ function usePublication(id: string) {
   };
 }
 
-function useMyPublications(id: string) {
+function useMyPublications(id: any) {
   const { data, error, isLoading, mutate } = useSWR<PublicationsResponse>(
     `/users/${id}/publications`,
     fetcher

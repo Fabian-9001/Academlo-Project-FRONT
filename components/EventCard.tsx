@@ -95,13 +95,23 @@ const EventCard = ({ publication }: { publication?: any }) => {
         <header>
           <h3
             onClick={navigate}
-            className="font-[600] text-[20px] leading-[23px] text-primary-blackLight mt-[15px] ml-[23px] cursor-pointer"
+            className="font-[600] h-[25px] scroll text-[20px] leading-[23px] text-primary-blackLight mt-[15px] ml-[23px] cursor-pointer overflow-y-auto"
           >
-            {publication?.title}
+            {publication?.title} Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit. Dolore odio totam labore praesentium quo
+            architecto neque, at, dolorem accusantium sed iusto porro aspernatur
+            aperiam magnam? Libero ducimus suscipit ut hic.
           </h3>
         </header>
         <p className="min-h-[70px] max-h-[70px] overflow-y-auto font-[400] text-[15px] leading-[17px] text-[#6E6A6C] ml-[23px] mr-[21px] mt-[5px] mb-[15px] scroll ">
-          {publication?.description}
+          {publication?.description} Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Omnis, voluptas deleniti? Fuga maiores et molestiae
+          veritatis recusandae dolorem unde, deleniti quas, laboriosam accusamus
+          voluptatem magni! Aperiam cum quidem nihil ullam. Lorem ipsum dolor
+          sit amet, consectetur adipisicing elit. Temporibus at corporis
+          delectus enim asperiores? Soluta non eaque, amet suscipit minus
+          aperiam voluptate accusantium, hic, nihil eum quas voluptatum cumque.
+          Excepturi?
         </p>
         <footer className="">
           <Link
@@ -109,7 +119,10 @@ const EventCard = ({ publication }: { publication?: any }) => {
             href="https://www.academlo.com"
             target="_blank"
           >
-            {publication?.content}
+            {publication?.content} Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Quam cum ad nisi aut eum eius amet sit eaque
+            debitis vel maxime dignissimos a dolorum, fugiat reprehenderit
+            dolores nobis eveniet laboriosam?
           </Link>
           <div className="flex items-center gap-[10px] mt-[12px] ml-[30px]">
             <Person />
