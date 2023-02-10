@@ -11,9 +11,7 @@ export default function Profile() {
   const [isActive, setIsActive] = useState(false);
   const { data } = useUser();
   const { data: votes } = useVotes(`${data ? data?.results.id : ''}`);
-  const { data: publications } = useMyPublications(
-    `${data ? data?.results.id : ''}`
-  );
+  const { data: publications } = useMyPublications(data?.results.id);
 
   return (
     <div className="bg-white">
@@ -54,10 +52,7 @@ export default function Profile() {
       ${isActive ? 'h-auto' : 'max-h-[990px]'} `}
       >
         {isPublications === false ? (
-          <div
-            id="#votes"
-            className="w-full flex flex-wrap lg:grid lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]"
-          >
+          <div className="w-full flex flex-wrap lg:grid lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
             {votes?.map((publication) => (
               <EventCard
                 key={publication.publication_id}

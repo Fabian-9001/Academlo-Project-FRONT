@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { signUp } from '../../lib/services/auth.services';
-import { Sign_Up } from '../../lib/interfaces/auth.interface';
+import { signUp } from '../lib/services/auth.services';
+import { Sign_Up } from '../lib/interfaces/auth.interface';
 import Swal from 'sweetalert2';
 
 export default function SignUp() {
@@ -11,9 +11,24 @@ export default function SignUp() {
     signUp(data)
       .then(() => {
         window.location.href = '/profile';
-        Swal.fire('Registro', 'Usuario Creado!');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Usuario Creado!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Oops, verifica completar todo el formulario',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
   };
   return (
     <div className="grid w-full min-h-[100vh] bg-white font-roboto mx-auto grid-cols-1 md:grid-cols-2 pb-[45px] md:pb-0">

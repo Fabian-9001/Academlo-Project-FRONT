@@ -23,23 +23,23 @@ const NavBar = () => {
             alt="Logo de sigla PC de palabra Para Cuando"
           />
         </header>
-        <div className="flex items-center relative">
+        <div className="flex items-center relative ">
+          <div
+            onClick={() => router.push('/new-post')}
+            className="flex gap-[10px] cursor-pointer mr-[40px]"
+          >
+            <Image
+              width={16}
+              height={16}
+              src="/svg/plus.svg"
+              alt="Imagen de equis"
+            />
+            <p className="text-[#1B4DB1] text-[12px] hover:brightness-[1.5] duration-[0.3s]">
+              Crear publicación
+            </p>
+          </div>
           {data ? (
             <div className="flex gap-[20px] md:gap-[40px] items-center">
-              <div
-                onClick={() => router.push('new-post')}
-                className="flex gap-[10px] cursor-pointer"
-              >
-                <Image
-                  width={16}
-                  height={16}
-                  src="/svg/plus.svg"
-                  alt="Imagen de equis"
-                />
-                <p className="text-[#1B4DB1] text-[12px] hover:brightness-[1.5] duration-[0.3s]">
-                  Crear publicación
-                </p>
-              </div>
               <div
                 onClick={() => router.push('/profile')}
                 className="hidden sm:flex gap-[10px] cursor-pointer"
@@ -83,13 +83,13 @@ const NavBar = () => {
             <div className="flex items-center">
               <Link
                 className="text-white  hover:text-[#ff64bc] duration-[0.3s] text-[11px] mr-[20px]"
-                href={'/auth/sign-in'}
+                href={'/sign-in'}
               >
                 Log In
               </Link>
               <Link
                 className="text-white  hover:text-[#ff64bc] duration-[0.3s] text-[11px]"
-                href={'/auth/sign-up'}
+                href={'/sign-up'}
               >
                 Sign Up
               </Link>

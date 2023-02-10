@@ -15,6 +15,8 @@ import {
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { votePublication } from '../../lib/services/votes.services';
+import Swal from 'sweetalert2';
+import { useUser } from '../../lib/services/user.services';
 
 export default function Details() {
   const router = useRouter();
@@ -28,14 +30,32 @@ export default function Details() {
     (element) => element.tags[0].name === data?.tags[0].name
   );
 
+  const { data: me } = useUser();
+  const { mutate } = usePublications();
   const vote = () => {
-    data &&
+    if (data && me) {
       votePublication(data.id)
         .then(() => {
-          setIsVoted(!isVoted);
-          window.location.href = `/event/${data.id}`;
+          if (isVoted === true) {
+            Swal.fire('voto', 'Eliminado!', 'success');
+            setIsVoted(!isVoted);
+          } else {
+            Swal.fire('Voto Registrado!');
+            setIsVoted(!isVoted);
+          }
+          mutate();
         })
         .catch((err) => console.log(err));
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        title: 'Inicia Sesion para votar',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      router.push('/sign-in');
+    }
   };
 
   return (
@@ -96,9 +116,13 @@ export default function Details() {
               </p>
             </div>
           </header>
-          <div className="min-w-[375px]  mx-auto min-h-[250px] max-w-[540px] max-h-[380px] mb-[30px] p-[20px] relative row-span-2 sm:mb-[0] sm:w-full">
+          <div className="min-w-[375px]  mx-auto min-h-[250px] md:min-h-[380px] max-w-[540px] max-h-[380px] mb-[30px] p-[20px] relative row-span-2 sm:mb-[0] sm:w-full">
             <Image
-              src={data?.picture ? data?.picture : '/images/Frame-2.png'}
+              src={
+                data?.picture
+                  ? data?.picture
+                  : '/images/topics/tournaments/slide1.jpg'
+              }
               fill={true}
               alt=""
             />

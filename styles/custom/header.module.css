@@ -1,0 +1,42 @@
+.sliderHeader {
+  animation: sliderAuto 15s infinite alternate linear;
+}
+
+@keyframes sliderAuto {
+  0% {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 0;
+  }
+
+  40% {
+    margin-left: -100%;
+  }
+
+  60% {
+    margin-left: -100%;
+  }
+
+  80% {
+    margin-left: -200%;
+  }
+
+  100% {
+    margin-left: -200%;
+  }
+}
+
+.searcher:hover button img {
+  animation: search 1s infinite alternate linear;
+}
+
+@keyframes search {
+  0% {
+    transform: scale(1) rotate(-15deg);
+  }
+  100% {
+    transform: scale(1.25) rotate(0deg);
+  }
+}

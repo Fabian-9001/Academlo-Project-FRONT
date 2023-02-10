@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
-import { RecoverPassword } from '../../lib/interfaces/auth.interface';
-import { recoveryPassword } from '../../lib/services/auth.services';
+import { RecoverPassword } from '../lib/interfaces/auth.interface';
+import { recoveryPassword } from '../lib/services/auth.services';
 import { useRouter } from 'next/router';
 
 const RecoveryPassword = () => {

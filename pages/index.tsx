@@ -5,7 +5,6 @@ import SliderCards from '../components/SliderCards';
 import SuggestedList from '../components/SuggestedList';
 import NavBar from '../components/NavBar';
 import { usePublications } from '../lib/services/publications.services';
-
 export default function Home() {
   const { data: publications } = usePublications();
 

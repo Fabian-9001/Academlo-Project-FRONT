@@ -30,12 +30,24 @@ export default function NewPost() {
     } else {
       createPublication(data)
         .then((res) => {
-          Swal.fire('New Post', 'Nueva Publicacion Creada', 'success');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'YourPublicacion creada!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
           console.log(res.data);
           router.push('/profile');
         })
         .catch((err) => {
-          Swal.fire('Error', 'Error al crear Publicacion', 'error');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Verifica completar todo los campos en el formulario',
+            showConfirmButton: false,
+            timer: 1500,
+          });
           console.log(err);
         });
     }

@@ -3,6 +3,8 @@ import SliderCards from '../components/SliderCards';
 import SuggestedList from '../components/SuggestedList';
 import NavBar from '../components/NavBar';
 import SubNavbar from '../components/SubNavbar';
+import Image from 'next/image';
+import style from '../styles/custom/header.module.css';
 import { usePublications } from '../lib/services/publications.services';
 
 export default function Tournaments() {
@@ -14,19 +16,49 @@ export default function Tournaments() {
   return (
     <div>
       <NavBar />
-      <header className="w-full h-[205px] font-roboto bg-no-repeat bg-cover bg-center bg-[url('/images/desktop/torneos.png')]">
-        <div className="w-full h-full flex flex-col justify-evenly px-[20px] pt-[25px] pb-[40px] max-w-[980px] mx-auto lg:px-[0]">
-          <p className="text-[16px] font-[500] leading-[19px] pb-[20px]">
-            Home / Marcas
-          </p>
-          <p className="text-[48px] font-[900] leading-[50px] text-[#F3F243] pb-[5px]">
-            Torneos y Eventos
-          </p>
-          <p className="text-[16px] font-[500] leading-[19px]">
-            Descrubre los torneos y eventos que la gente quiere cerca
-          </p>
+      <div className="w-full relative h-[205px] font-roboto">
+        <div
+          className={`w-full h-full flex ${style.sliderHeader} absolute brightness-[0.8]`}
+        >
+          <div className="min-w-[100%] h-full relative">
+            <Image
+              className="object-cover"
+              fill={true}
+              alt=""
+              src={'/images/desktop/torneos.png'}
+            />
+          </div>
+          <div className="min-w-[100%] h-full relative overflow-hidden ">
+            <Image
+              className="object-cover object-top"
+              fill={true}
+              alt=""
+              src={'/images/topics/tournaments/slide1.jpg'}
+            />
+          </div>
+          <div className="min-w-[100%] h-full relative">
+            <Image
+              className="object-cover object-center"
+              fill={true}
+              alt=""
+              src={'/images/topics/tournaments/slide2.jpg'}
+            />
+          </div>
         </div>
-      </header>
+        <header className="w-full relative h-[205px] font-roboto">
+          <div className="w-full h-full flex flex-col justify-evenly px-[20px] pt-[25px] pb-[40px] max-w-[980px] mx-auto lg:px-[0]">
+            <p className="text-[16px] font-[500] leading-[19px] pb-[20px]">
+              Home / Torneos
+            </p>
+            <p className="text-[48px] font-[900] leading-[50px] text-[#F3F243] pb-[5px]">
+              Torneos y Eventos
+            </p>
+            <p className="text-[16px] font-[500] leading-[19px]">
+              Descrubre los torneos y eventos que la gente quiere cerca
+            </p>
+          </div>
+        </header>
+      </div>
       <SubNavbar />
       <div className="bg-white pt-[85px] sm:pt-[75px] font-roboto">
         <div className="flex flex-col gap-[35px] pb-[50px] pl-[20px] max-w-[980px] mx-auto lg:pl-[0]">
