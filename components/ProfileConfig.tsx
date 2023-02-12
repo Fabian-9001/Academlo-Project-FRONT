@@ -30,7 +30,7 @@ const ProfileConfig = ({ isActive }: { isActive: boolean }) => {
     >
       <div className="flex gap-[20px] pb-[25px] relative">
         <Image
-          onClick={() => router.push('/settings')}
+          onClick={() => router.push('/profileInfo')}
           className="hover:rotate-[180deg] duration-[0.8s] cursor-pointer"
           width={18}
           height={18}

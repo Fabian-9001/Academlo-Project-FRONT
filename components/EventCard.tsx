@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import LikeDisable from './LikeDisable';
-import LikeEnable from './LikeEnable';
-import Person from './Person';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useVotes, votePublication } from '../lib/services/votes.services';
 import Swal from 'sweetalert2';
 import {
   useMyPublications,
   usePublications,
 } from '../lib/services/publications.services';
 import { useUser } from '../lib/services/user.services';
+import { useVotes, votePublication } from '../lib/services/votes.services';
+import LikeDisable from './LikeDisable';
+import LikeEnable from './LikeEnable';
+import Person from './Person';
 
 const EventCard = ({ publication }: { publication?: any }) => {
   const [isVoted, setIsVoted] = useState(false);
@@ -26,10 +26,10 @@ const EventCard = ({ publication }: { publication?: any }) => {
         .then(() => {
           if (isVoted === true) {
             Swal.fire('voto', 'Eliminado!', 'success');
-            setIsVoted(!isVoted);
+            setIsVoted(false);
           } else {
             Swal.fire('Voto Registrado!');
-            setIsVoted(!isVoted);
+            setIsVoted(true);
           }
           mutate();
         })
