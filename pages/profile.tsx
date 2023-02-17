@@ -53,7 +53,7 @@ export default function Profile() {
       >
         {isPublications === false ? (
           <div className="w-full flex flex-wrap lg:grid lg:grid-cols-3 gap-y-[45px] gap-x-[10px] p-[10px]">
-            {votes?.map((publication) => (
+            {votes?.map((publication:any) => (
               <EventCard
                 key={publication.publication_id}
                 publication={publication.Publication}
