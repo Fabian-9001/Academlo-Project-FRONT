@@ -1,30 +1,72 @@
 .sliderHeader {
-  animation: sliderAuto 15s infinite alternate linear;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: sliderHeader 15s infinite alternate linear;
 }
 
-@keyframes sliderAuto {
+@keyframes sliderHeader {
   0% {
-    margin-left: 0;
+    background-image: url(/images/headerImg.png);
   }
 
   20% {
-    margin-left: 0;
+    background-image: url(/images/headerImg.png);
   }
 
   40% {
-    margin-left: -100%;
+    background-image: url(/images/header/slide1.png);
   }
 
   60% {
-    margin-left: -100%;
+    background-image: url(/images/header/slide1.png);
   }
 
   80% {
-    margin-left: -200%;
+    background-image: url(/images/header/slide2.png);
   }
 
   100% {
-    margin-left: -200%;
+    background-image: url(/images/header/slide2.png);
+  }
+}
+
+.sliderTournaments {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: sliderTournaments 10s infinite alternate linear;
+}
+
+@keyframes sliderTournaments {
+  0% {
+    object-fit: cover;
+    background-image: url(/images/desktop/torneos.png);
+  }
+
+  20% {
+    object-fit: cover;
+    background-image: url(/images/desktop/torneos.png);
+  }
+
+  40% {
+    object-fit: cover;
+    background-image: url(/images/topics/tournaments/slide1.jpg);
+  }
+
+  60% {
+    object-fit: cover;
+    background-image: url(/images/topics/tournaments/slide1.jpg);
+  }
+
+  80% {
+    object-fit: cover;
+    background-image: url(/images/topics/tournaments/slide2.jpg);
+  }
+
+  100% {
+    object-fit: cover;
+    background-image: url(/images/topics/tournaments/slide2.jpg);
   }
 }
 
@@ -36,6 +78,7 @@
   0% {
     transform: scale(1) rotate(-15deg);
   }
+
   100% {
     transform: scale(1.25) rotate(0deg);
   }

@@ -59,7 +59,7 @@ export default function SignIn() {
           <Image
             width={187}
             height={168}
-            src="/images/FrameLogo.png"
+            src="/images/Frame-4.png"
             alt="img login"
           />
         </div>

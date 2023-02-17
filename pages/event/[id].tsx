@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 import Button from '../../components/Button';
 import CategoryButton from '../../components/CategoryButton';
 import Footer from '../../components/Footer';
@@ -12,48 +15,33 @@ import {
   usePublication,
   usePublications,
 } from '../../lib/services/publications.services';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { votePublication } from '../../lib/services/votes.services';
-import Swal from 'sweetalert2';
 import { useUser } from '../../lib/services/user.services';
+import { votePublication } from '../../lib/services/votes.services';
 
 export default function Details() {
-  const router = useRouter();
   const [isVoted, setIsVoted] = useState(false);
-
+  const router = useRouter();
   const id: any = router.query.id;
-  const { data } = usePublication(id);
-
-  const { data: dataSlider } = usePublications();
-  let publications = dataSlider?.filter(
+  const { mutate, data } = usePublication(id);
+  const { data: dataMain } = usePublications();
+  const { data: user } = useUser();
+  let publications = dataMain?.filter(
     (element) => element.tags[0].name === data?.tags[0].name
   );
-
-  const { data: me } = useUser();
-  const { mutate } = usePublications();
   const vote = () => {
-    if (data && me) {
+    if (data && user) {
+      setIsVoted(!isVoted);
       votePublication(data.id)
         .then(() => {
           if (isVoted === true) {
             Swal.fire('voto', 'Eliminado!', 'success');
-            setIsVoted(!isVoted);
           } else {
             Swal.fire('Voto Registrado!');
-            setIsVoted(!isVoted);
           }
           mutate();
         })
         .catch((err) => console.log(err));
     } else {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'info',
-        title: 'Inicia Sesion para votar',
-        showConfirmButton: false,
-        timer: 1500,
-      });
       router.push('/sign-in');
     }
   };
@@ -131,7 +119,7 @@ export default function Details() {
             onClick={vote}
             className="w-full px-[10px] sm:pr-[20px] sm:px-[20px]"
           >
-            <Button text="votar" />
+            <Button text={isVoted ? 'Quitar Voto' : 'Votar'} />
           </footer>
         </div>
         <div className="pb-[25px] md:pb-[80px]">

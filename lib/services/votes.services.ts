@@ -4,9 +4,10 @@ import { VotesResponse } from '../interfaces/votes.inerface';
 import instance from '../helpers/axios.helpers';
 
 function useVotes(id: string) {
-  const { data, error, isLoading, mutate } = useSWR<VotesResponse>(
+  const { data, error, isLoading, mutate } = useSWR<any>(
     `/users/${id}/votes`,
     fetcher
+   
   );
   return {
     data: data?.results.results,

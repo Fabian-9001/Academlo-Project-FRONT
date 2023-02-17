@@ -12,29 +12,7 @@ const Header = () => {
       <div
         className={`w-full h-full flex ${style.sliderHeader} absolute brightness-[0.8]`}
       >
-        <div className="min-w-[100%] h-full relative">
-          <img
-            className="object-cover w-full h-full"
-            src="/images/headerImg.png"
-            alt=""
-          />
-        </div>
-        <div className="min-w-[100%] h-full relative overflow-hidden ">
-          <Image
-            fill={true}
-            style={{ objectFit: 'cover' }}
-            alt=""
-            src={'/images/header/slide1.png'}
-          />
-        </div>
-        <div className="min-w-[100%] h-full relative">
-          <Image
-            fill={true}
-            style={{ objectFit: 'cover' }}
-            alt=""
-            src={'/images/header/slide2.png'}
-          />
-        </div>
+    
       </div>
       <div className="py-[70px] px-[20px]">
         <Image

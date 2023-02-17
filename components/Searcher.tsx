@@ -16,7 +16,7 @@ const Searcher = ({ style }: { style?: boolean }) => {
     >
       <input
         {...register('request')}
-        className={`font-roboto text-[#727272] text-[13px] pl-[25px] leading-[15px] w-[80%] bg-transparent outline-none`}
+        className={`font-roboto text-black text-[13px] pl-[25px] leading-[15px] w-[80%] bg-transparent outline-none`}
         type="text"
         placeholder="¿Qué quieres ver en tu ciudad?"
       />

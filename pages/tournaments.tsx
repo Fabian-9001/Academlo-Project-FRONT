@@ -18,32 +18,9 @@ export default function Tournaments() {
       <NavBar />
       <div className="w-full relative h-[205px] font-roboto">
         <div
-          className={`w-full h-full flex ${style.sliderHeader} absolute brightness-[0.8]`}
+          className={`w-full h-full flex ${style.sliderTournaments} absolute brightness-[0.8]`}
         >
-          <div className="min-w-[100%] h-full relative">
-            <Image
-              className="object-cover"
-              fill={true}
-              alt=""
-              src={'/images/desktop/torneos.png'}
-            />
-          </div>
-          <div className="min-w-[100%] h-full relative overflow-hidden ">
-            <Image
-              className="object-cover object-top"
-              fill={true}
-              alt=""
-              src={'/images/topics/tournaments/slide1.jpg'}
-            />
-          </div>
-          <div className="min-w-[100%] h-full relative">
-            <Image
-              className="object-cover object-center"
-              fill={true}
-              alt=""
-              src={'/images/topics/tournaments/slide2.jpg'}
-            />
-          </div>
+ 
         </div>
         <header className="w-full relative h-[205px] font-roboto">
           <div className="w-full h-full flex flex-col justify-evenly px-[20px] pt-[25px] pb-[40px] max-w-[980px] mx-auto lg:px-[0]">

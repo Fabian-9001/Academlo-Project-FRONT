@@ -50,23 +50,55 @@ const SliderCards = ({ publications }: { publications?: Publication[] }) => {
               slidesPerView: 1.7,
               spaceBetween: 20,
             },
-            650: {
+            610: {
+              slidesPerView: 1.8,
+              spaceBetween: 20,
+            },
+            640: {
+              slidesPerView: 1.9,
+              spaceBetween: 20,
+            },
+            660: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
             700: {
+              slidesPerView: 2.1,
+              spaceBetween: 20,
+            },
+            715: {
               slidesPerView: 2.2,
               spaceBetween: 20,
             },
-            800: {
+            740: {
+              slidesPerView: 2.25,
+              spaceBetween: 20,
+            },
+            780: {
+              slidesPerView: 2.4,
+              spaceBetween: 20,
+            },
+            820: {
               slidesPerView: 2.5,
               spaceBetween: 20,
             },
-            900: {
-              slidesPerView: 2.8,
+            860: {
+              slidesPerView: 2.6,
+              spaceBetween: 20,
+            },
+            910: {
+              slidesPerView: 2.7,
               spaceBetween: 20,
             },
             940: {
+              slidesPerView: 2.8,
+              spaceBetween: 20,
+            },
+            980: {
+              slidesPerView: 2.9,
+              spaceBetween: 20,
+            },
+            1000: {
               slidesPerView: 3,
               spaceBetween: 20,
             },

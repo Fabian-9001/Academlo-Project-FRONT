@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const LikeDisable = () => {
   return (
-    <button>
+    <button className="border-[#e5e7eb] border-[1px] rounded-[50%]">
       <Image
         src="/svg/likeDisable.svg"
         width={50}

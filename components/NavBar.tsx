@@ -11,7 +11,7 @@ const NavBar = () => {
   const { data } = useUser();
 
   return (
-    <nav className="w-full h-[71px] bg-black p-[25px]">
+    <nav className="w-full h-[71px] bg-black p-[25px] text-white">
       <div className=" justify-between font-roboto font-[500] mx-auto flex max-w-[1280px]">
         <header>
           <Image
